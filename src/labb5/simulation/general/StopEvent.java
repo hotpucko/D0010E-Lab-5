@@ -1,9 +1,12 @@
 package labb5.simulation.general;
 
+import general.EventQueue;
+import general.SimState;
+
 public class StopEvent extends Event {
 
-	public StopEvent() {
-		// TODO Auto-generated constructor stub
+	public 	StopEvent(SimState simState, EventQueue eventQueue, double time) {
+		super(simState, eventQueue, time);
 	}
 
 }
