@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
  */
 public class SortedSequence<E extends Comparable<E>> 
 implements Comparable<SortedSequence<E>> {
-	
+	int b =2;
 	private Vector<E> store = new Vector<E>();
 	
 	public void add(E item) {
