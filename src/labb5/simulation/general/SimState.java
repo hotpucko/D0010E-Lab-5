@@ -3,10 +3,9 @@ package labb5.simulation.general;
 import java.util.Observable;
 
 /**
- * State is the abstract base class for all state general state contexts. a State
- * object encapsulates all the information needed to set up a general simulation
- * state.
- * This state information includes:
+ * State is the abstract base class for all state general state contexts. a
+ * State object encapsulates all the information needed to set up a general
+ * simulation state. This state information includes:
  * <ul>
  * <li>the total value of the simulation time
  * <li>the conditional running state
@@ -29,17 +28,16 @@ public abstract class SimState extends Observable {
 	 * The default SimState constructor
 	 */
 	public SimState() {
-		
+
 	}
 
 	/**
-	 * Updates the internal time based on the argument if the state 
-	 * is considered active
-	 * <br>
+	 * Updates the internal time based on the argument if the state is considered
+	 * active <br>
 	 * Notifies observers with the event that was processed
 	 * 
 	 * @param e
-	 *           an <code>Event</code> that the simulation processes
+	 *            an <code>Event</code> that the simulation processes
 	 */
 	void update(Event e) {
 		if (!isRunning()) {
@@ -58,8 +56,8 @@ public abstract class SimState extends Observable {
 	/**
 	 * Checks if the simstate is active
 	 * 
-	 * @return <code>true </code> if the <code>SimState</code>
-	 *  object is considered active; <code>false</code> otherwise
+	 * @return <code>true </code> if the <code>SimState</code> object is considered
+	 *         active; <code>false</code> otherwise
 	 */
 	public boolean isRunning() {
 		return isRunning();
@@ -86,7 +84,7 @@ public abstract class SimState extends Observable {
 	 * Checks whether the emergency break has been triggered
 	 * 
 	 * @return <code>true</code> if the emergency break has been triggered;
- 	 *         <code>false</code> otherwise
+	 *         <code>false</code> otherwise
 	 */
 	protected boolean isEmergencyBreak() {
 		return emergencyBreak;
