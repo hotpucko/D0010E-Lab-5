@@ -13,7 +13,7 @@ import java.util.Observable;
  * <li>the conditional emergency break
  * </ul>
  * 
- * @author Stefan Jonsson, Dino Lolic, William Katuwaka, Arvid From
+ * @author Stefan Jonsson, Dino Lolic, William Kiwanuka, Arvid From
  * @version %I%, %G%
  *
  */
