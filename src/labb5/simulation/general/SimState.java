@@ -66,7 +66,7 @@ public abstract class SimState extends Observable {
 	/**
 	 * Stops the simulation in its current state
 	 */
-	void EmergencyBreak() {
+	public void EmergencyBreak() {
 		this.emergencyBreak = true;
 		this.isRunning = false;
 	}
