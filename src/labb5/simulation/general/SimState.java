@@ -39,7 +39,7 @@ public abstract class SimState extends Observable {
 	 * @param e
 	 *            an <code>Event</code> that the simulation processes
 	 */
-	void update(Event e) {
+	public void update(Event e) {
 		if (!isRunning()) {
 			return;
 		}
