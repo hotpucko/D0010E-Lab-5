@@ -21,8 +21,15 @@ public class SupermarketState extends SimState {
 	private double pMin;
 	private double pMax;
 	
-	public SupermarketState() {
-		// TODO Auto-generated constructor stub
+	public SupermarketState(int seed, int customerMax, double lambda, double kMin, double kMax, double pMin, double pMax) {
+		super();
+		this.seed = seed;
+		this.customerMax = customerMax;
+		this.lambda = lambda;
+		this.kMin = kMin;
+		this.kMax = kMax;
+		this.pMin = pMin;
+		this.pMax = pMax;
 	}
 
 }
