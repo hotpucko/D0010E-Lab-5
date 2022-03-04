@@ -59,7 +59,7 @@ public class FIFO {
 	 *   
 	 *  @ return String, size of queue and customers in queue
 	 */
-	 public String ToString() {
+	 public String toString() {
 		 return getSize() + " " + shopQueue;
 	 }
 }
