@@ -1,11 +1,12 @@
 package labb5.simulation.supermarket.state;
 
+import labb5.simulation.general.Event;
 import labb5.simulation.general.SimState;
 
 public class SupermarketState extends SimState {
 
 	private int seed;
-	private int currentRegister;
+	private int currentRegisters;
 	private int maxRegisters;
 	private int customerMax;
 	private int customersInShop;
@@ -15,6 +16,7 @@ public class SupermarketState extends SimState {
 	private boolean isShopOpen;
 	private double totalTimeQueued;
 	private double totalTimeRegistersIdled;
+	private double lastEventTime;
 	private double lambda;
 	private double kMin;
 	private double kMax;
@@ -32,4 +34,14 @@ public class SupermarketState extends SimState {
 		this.pMax = pMax;
 	}
 
+	public void update(Event e) {
+		
+		if(this.isRunning()) {
+			totalTimeRegistersIdled += (e.getTime() - lastEventTime) * currentRegisters;
+			totalTimeQueued += (e.getTime() - lastEvent) * getShopQueue().getSize();
+		}
+		
+		super.update(e);
+	}
+	
 }
