@@ -43,7 +43,7 @@ public class ShoppingEvent extends Event {
 	void run(SimState simState) {
 		SupermarketState state = (SupermarketState) this.simState;
 		state.update();
-		
+
 		double payLeaveTime = generatePayLeaveTime();
 		FIFO queueStatus = state.getShopQueue();
 
