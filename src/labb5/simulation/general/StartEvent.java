@@ -9,8 +9,8 @@ import labb5.simulation.supermarket.state.utilities.CustomerFactory;
 public class StartEvent extends Event {
 
 	/**
-	 * This class marks the start of the simulation. The first
-	 * customer is generated and an ArrivalEvent is created.
+	 * This class marks the start of the simulation. The first customer is generated
+	 * and an ArrivalEvent is created.
 	 * 
 	 * @param simState
 	 * @param eventQueue
@@ -26,11 +26,12 @@ public class StartEvent extends Event {
 	void run(SimState simState) {
 		SupermarketState state = (SupermarketState) this.simState;
 		state.update();
-		
-		ArrivalEvent firstArrival = new ArrivalEvent(simState, eventQueue, time, state.getCustomerFactory().generateCustomer());
+
+		ArrivalEvent firstArrival = new ArrivalEvent(simState, eventQueue, time,
+				state.getCustomerFactory().generateCustomer());
 		eventQueue.add(firstArrival);
 		// Skapa ett arrival event
-		
+
 	}
 
 	@Override
