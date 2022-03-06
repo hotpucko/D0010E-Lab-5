@@ -28,7 +28,7 @@ public class ArrivalEvent extends Event {
 	 * 
 	 * @param simState
 	 * @param eventQueue
-	 * @param time Absolute time.
+	 * @param time        Absolute time.
 	 * @param customerNum Customer number of a specific customer.
 	 * 
 	 * @author William Kiwanuka, Dino Lolic, Stefan Jonsson, Arvid From
@@ -39,10 +39,10 @@ public class ArrivalEvent extends Event {
 	}
 
 	public void run(SimState simState) {
-		
+
 		SupermarketState state = (SupermarketState) this.simState;
 		state.update();
-		
+
 		double absTime = this.getTime();
 		double arrTime = state.generateArrivalTime();
 		double shopTime = state.generateShoppingTime();
@@ -64,7 +64,7 @@ public class ArrivalEvent extends Event {
 				EventQueue.add(nextArrivalEvent);
 				EventQueue.add(goShopping);
 			}
-		} 
+		}
 	}
 
 	@Override
