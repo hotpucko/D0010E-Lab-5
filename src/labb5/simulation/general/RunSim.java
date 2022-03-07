@@ -23,7 +23,6 @@ public class RunSim{
 	 * Constructor meant to intialize further use of the run function in different
 	 * contexts
 	 */
-
 	public RunSim(int customerMax, double lambda, double kMin, double kMax, double pMin,
 			double pMax, int seed, int maxRegisters){
 		simState = new SupermarketState(seed, customerMax, lambda, kMin, kMax, pMin, pMax, maxRegisters);
@@ -40,7 +39,6 @@ public class RunSim{
 	 * 
 	 * @ return SimState returns the state of the simulation at the end of said simulation 
 	 */
-	
 	public void run(double closingTime) {
 
 		Event startEvent = new StartShopEvent(simState, queue);
