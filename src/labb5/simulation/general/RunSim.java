@@ -14,15 +14,14 @@ import labb5.simulation.supermarket.view.SupermarketView;
  *  @ author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
  */
 
-
-
 public class RunSim{
 	
 	private SupermarketState simState;
 	private EventQueue queue;
 	
 	/*
-	 * Constructor meant to intialize further use of the run function in different contexts
+	 * Constructor meant to intialize further use of the run function in different
+	 * contexts
 	 */
 
 	public RunSim(int customerMax, double lambda, double kMin, double kMax, double pMin,
