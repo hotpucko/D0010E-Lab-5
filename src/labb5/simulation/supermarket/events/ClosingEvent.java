@@ -26,7 +26,6 @@ public class ClosingEvent extends Event {
 	 * Runs the specific ClosingEvent at the given closing time Upon running, the
 	 * shop closes, barring future customers from entry.
 	 */
-	
 	public void run(SimState simState) {
 		((SupermarketState) this.simState).update();
 		((SupermarketState) this.simState).close();
