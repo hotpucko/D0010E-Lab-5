@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import labb5.simulation.supermarket.events.PayLeaveEvent;
 
 
-/**
+/*
  * Describes the queue that appears when there are more people
  *  waiting to make their purchases than  there are available registers
  *  in the supermarket simulator
@@ -19,7 +19,7 @@ public class FIFO {
 
 	private ArrayList<PayLeaveEvent> shopQueue = new ArrayList<PayLeaveEvent>();
 
-	/**
+	/*
 	 * Adds a new event representing the future payment and subsequent exit of a
 	 * customer to the queue.
 	 */
@@ -28,7 +28,7 @@ public class FIFO {
 		shopQueue.add(e);
 	}
 
-	/**
+	/*
 	 * Represents the customer finally paying and leaving both the queue and the
 	 * supermarket.
 	 * 
@@ -45,7 +45,7 @@ public class FIFO {
 		}
 	}
 
-	/**
+	/*
 	 * Checks if the queue is empty.
 	 * 
 	 * @return true if the queue is empty, elsewise false.
@@ -54,7 +54,7 @@ public class FIFO {
 		return shopQueue.isEmpty();
 	}
 
-	/**
+	/*
 	 * Outputs the current amount of people in the queue
 	 * 
 	 * @return int the amount of people in the queue
@@ -63,14 +63,14 @@ public class FIFO {
 		return shopQueue.size();
 	}
 
-	/**
+	/*
 	 * Outputs String to represent the queues size and which customers are present
 	 * in it.
 	 * 
 	 * @ return String, size of queue and customers in queue
 	 */
 	public String toString() {
-		String x = shopQueue.get(0).getCustomerNumber();	
+		String x = String.valueOf(shopQueue.get(0).getCustomerNumber());	
 		for (int i =1; i == shopQueue.size(); i++){
 			x += ", "  + shopQueue.get(i); 
 		}
