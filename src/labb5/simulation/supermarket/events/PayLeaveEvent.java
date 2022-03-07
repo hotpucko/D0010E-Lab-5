@@ -45,12 +45,13 @@ public class PayLeaveEvent extends Event {
 	 * There after, it will remove the first element, increment the register by 1,
 	 * decrement customers by 1 and increment processed customers by 1.
 	 */
+	@Override
 	public void run(SimState simState) {
 
-		SupermarketState state = (SupermarketState) this.simState;
-		((SupermarketState) this.simState).update(this);
+		SupermarketState state = ((SupermarketState) this.simState);
+		state.update(this);
 
-		FIFO queue = state.getShopQueue();
+		FIFO queue = ((SupermarketState) state).getShopQueue();
 
 		if (!queue.isEmpty()) {
 			eventQueue.add(queue.removeFirst());
@@ -58,6 +59,7 @@ public class PayLeaveEvent extends Event {
 			state.decrementCustomersInShop();
 			state.incrementProcessedCustomerCount();
 		}
+
 	}
 
 	@Override
@@ -65,4 +67,12 @@ public class PayLeaveEvent extends Event {
 		return "Betalning";
 	}
 
+	/**
+	 * Fetching the customerNumber.
+	 * 
+	 * @return the customerNumber of the specific event.
+	 */
+	public int getCustomerNumber() {
+		return this.customerNumber;
+	}
 }
