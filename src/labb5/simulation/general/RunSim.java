@@ -11,7 +11,7 @@ import labb5.simulation.supermarket.view.SupermarketView;
  * Running the only method in the class  with desired parameters results in a printout
  *  of relevant data for how a supermarket would perform in such a situation.  
  * 
- *  @ author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
+ *  @author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
  */
 public class RunSim{
 	
