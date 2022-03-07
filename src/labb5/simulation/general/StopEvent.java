@@ -19,11 +19,17 @@ public class StopEvent extends Event {
 		super(simState, eventQueue, 999);
 	}
 
+	/**
+	 * Print stop.
+	 */
 	@Override
 	public String toString() {
 		return "Stop";
 	}
-
+	
+	/**
+	 * Runs the stopEvent, which essentially stops the simulation.
+	 */
 	@Override
 	public void run(SimState simState) {
 		SupermarketState state = (SupermarketState) this.simState;
