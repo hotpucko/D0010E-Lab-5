@@ -111,6 +111,14 @@ public class SupermarketState extends SimState {
 	}
 
 	/**
+	 * sets the internal is shop open variable to false
+	 * @see #isOpen()
+	 */
+	public void close() {
+		this.isShopOpen = false;
+	}
+	
+	/**
 	 * checks if the maximum capacity of customers is achieved
 	 * 
 	 * @return <code>true </code> if the shop is considered
