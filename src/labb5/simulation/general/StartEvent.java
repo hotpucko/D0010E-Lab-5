@@ -34,18 +34,17 @@ public class StartEvent extends Event {
 	 * @param simState The simstate object for which this event applies to.
 	 */
 	@Override
-	void run(SimState simState) {
+	public void run(SimState simState) {
 		SupermarketState state = (SupermarketState) this.simState;
-		state.update();
+		((SupermarketState) this.simState).update(this);
 
 		ArrivalEvent firstArrival = new ArrivalEvent(simState, eventQueue, time,
 				state.getCustomerFactory().generateCustomer());
-		eventQueue.add(firstArrival);
-		// Skapa ett arrival event
+		this.eventQueue.add(firstArrival);
 	}
 
 	@Override
 	public String toString() {
-		"Start"
+		return "Start";
 	}
 }

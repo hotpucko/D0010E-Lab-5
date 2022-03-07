@@ -43,7 +43,7 @@ public class ArrivalEvent extends Event {
 	public void run(SimState simState) {
 
 		SupermarketState state = (SupermarketState) this.simState;
-		state.update();
+		((SupermarketState) this.simState).update(this);
 
 		double absTime = this.getTime();
 		double arrTime = state.generateArrivalTime();
@@ -53,7 +53,7 @@ public class ArrivalEvent extends Event {
 		double nextShopTime = absTime + shopTime;
 
 		if (state.isOpen()) {
-			ArrivalEvent nextArrivalEvent = new ArrivalEvent(this.simState, this.eventQueue, nextTime,
+			ArrivalEvent nextArrivalEvent = new ArrivalEvent(this.simState, this.eventQueue, nextArrTime,
 					state.getCustomerFactory().generateCustomer());
 			if (state.isMaxCapacity()) {
 				state.incrementRejected();
@@ -63,10 +63,19 @@ public class ArrivalEvent extends Event {
 				ShoppingEvent goShopping = new ShoppingEvent(this.simState, this.eventQueue, nextShopTime,
 						customerNumber);
 
-				EventQueue.add(nextArrivalEvent);
-				EventQueue.add(goShopping);
+				this.eventQueue.add(nextArrivalEvent);
+				this.eventQueue.add(goShopping);
 			}
 		}
+	}
+	
+	/**
+	 * Getter for customernumber.
+	 * 
+	 * @return customerNumber
+	 */
+	public int getCustomerNumber() {
+		return this.customerNumber;
 	}
 
 	@Override

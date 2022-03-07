@@ -5,6 +5,7 @@ import labb5.simulation.general.Event;
 import labb5.simulation.general.EventQueue;
 import labb5.simulation.general.SimState;
 import labb5.simulation.supermarket.state.SupermarketState;
+import labb5.simulation.supermarket.state.utilities.FIFO;
 
 /**
  * ShoppingEvent, the simulation of a customer selecting goods to purchase. Once
@@ -40,11 +41,11 @@ public class ShoppingEvent extends Event {
 	 * reserve a register for this customer, else add the Pay event to a FIFO queue
 	 * to reach the registers.
 	 */
-	void run(SimState simState) {
+	public void run(SimState simState) {
 		SupermarketState state = (SupermarketState) this.simState;
-		state.update();
+		((SupermarketState) this.simState).update(this);
 		
-		double payLeaveTime = generatePayLeaveTime();
+		double payLeaveTime = state.generatePayLeaveTime();
 		FIFO queueStatus = state.getShopQueue();
 
 		double goPayTime = payLeaveTime + time;
@@ -54,7 +55,7 @@ public class ShoppingEvent extends Event {
 		if (state.getFreeRegisters() > 0) {
 			eventQueue.add(payLeave);
 			state.decrementRegisters();
-		} else if (state.getFreeRegisters = 0) {
+		} else if (state.getFreeRegisters() == 0) {
 			queueStatus.add(payLeave);
 		}
 	}

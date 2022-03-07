@@ -8,7 +8,6 @@ import labb5.simulation.general.SimState;
  * from the simulation start when the event should occur is stored in this
  * class, along with methods for run, getTime and compareTo that compares the
  * time it should occur with the current Time.
- * <ul>
  * 
  * @author Dino Lolic, Stefan Jonsson, William Kiwanuka, Arvid From
  * 
@@ -17,7 +16,7 @@ public abstract class Event implements Comparable<Event> {
 
 	protected double time;
 
-	EventQueue eventQueue;
+	public EventQueue eventQueue;
 	protected SimState simState;
 
 	/**
@@ -47,7 +46,7 @@ public abstract class Event implements Comparable<Event> {
 	 * 
 	 * @return The absolute time.
 	 */
-	protected double getTime() {
+	public double getTime() {
 		return this.time;
 	}
 
