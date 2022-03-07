@@ -70,7 +70,7 @@ public class FIFO {
 	 * @ return String, size of queue and customers in queue
 	 */
 	public String toString() {
-		String x = shopQueue.get(0).getCustomerNumber();	
+		String x = String.valueOf(shopQueue.get(0).getCustomerNumber());	
 		for (int i =1; i == shopQueue.size(); i++){
 			x += ", "  + shopQueue.get(i); 
 		}
