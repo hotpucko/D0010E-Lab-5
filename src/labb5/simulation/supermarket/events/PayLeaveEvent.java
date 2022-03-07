@@ -75,5 +75,4 @@ public class PayLeaveEvent extends Event {
 	public int getCustomerNumber() {
 		return this.customerNumber;
 	}
-
 }

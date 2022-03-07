@@ -31,14 +31,12 @@ public class ArrivalEvent extends Event {
 		super(simState, eventQueue, time);
 		customerNumber = customerNum;
 	}
-	
+
 	/**
-	 * Runs the specific ArrivalEvent. Upon running,
-	 * a new ArrivalEvent is created at an appropriate time
-	 * for a new customer. If the store is open and at max 
-	 * capacity, the rejected tracker in supermarketstate 
-	 * is incremented, else a ShoppingEvent is created for 
-	 * this customer at an appropriate time.
+	 * Runs the specific ArrivalEvent. Upon running, a new ArrivalEvent is created
+	 * at an appropriate time for a new customer. If the store is open and at max
+	 * capacity, the rejected tracker in supermarketstate is incremented, else a
+	 * ShoppingEvent is created for this customer at an appropriate time.
 	 */
 	public void run(SimState simState) {
 
@@ -57,7 +55,7 @@ public class ArrivalEvent extends Event {
 					state.getCustomerFactory().generateCustomer());
 			if (state.isMaxCapacity()) {
 				state.incrementRejected();
-				EventQueue.add(nextArrivalEvent);
+				eventQueue.add(nextArrivalEvent);
 			} else {
 				state.incrementCustomersInShop();
 				ShoppingEvent goShopping = new ShoppingEvent(this.simState, this.eventQueue, nextShopTime,
@@ -68,7 +66,7 @@ public class ArrivalEvent extends Event {
 			}
 		}
 	}
-	
+
 	/**
 	 * Getter for customernumber.
 	 * 
