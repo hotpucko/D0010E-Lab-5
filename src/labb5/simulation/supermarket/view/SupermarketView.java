@@ -63,11 +63,11 @@ public class SupermarketView extends View{
 	}
 
 	private void printClosingEvent(Event e) {
-		System.out.println(String.format("%.2f\t%-8s\t%s", e.getEventTime(), e.toString(), this.eventToCustomerNumberString(e)));
+		System.out.println(String.format("%.2f\t%-8s\t%s", e.getTime(), e.toString(), this.eventToCustomerNumberString(e)));
 	}
 
 	private void printStopEvent(SupermarketState state, Event e) {
-		System.out.println(String.format("%.2f\t%s", e.getEventTime(), e.toString()));
+		System.out.println(String.format("%.2f\t%s", e.getTime(), e.toString()));
 		System.out.println("RESULTAT\n========\n");
 		System.out.println(String.format("1)\tav %d kunder handlade %d medan %d missades\n", state.getCustomersProcessed() + state.getCustomersRejected(), state.getCustomersProcessed(), state.getCustomersRejected()));
 		System.out.println(String.format("2)\tTotal tid %d kassor varit lediga: %.2f te.", state.getMaxRegistersCount(), state.getTimeRegistersIdled()));
@@ -88,7 +88,7 @@ public class SupermarketView extends View{
 		System.out.println("\nFÖRLOPP");
 		System.out.println("=======");
 		System.out.println("Tid\tHändelse\tKund\t?\tled\tledT\tI\t$\t:-(\tköat\tköT\tköar\t[KassaKö]");
-		System.out.println(String.format("%.2f\t%s", e.getEventTime(), e.toString()));
+		System.out.println(String.format("%.2f\t%s", e.getTime(), e.toString()));
 	}
 	
 	private String eventToCustomerNumberString(Event e)
