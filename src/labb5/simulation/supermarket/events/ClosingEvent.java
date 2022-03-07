@@ -13,7 +13,6 @@ import labb5.simulation.supermarket.state.SupermarketState;
  *
  */
 public class ClosingEvent extends Event {
-	int c = 2;
 	
 	/**
 	 * Constructor which relates the individual event to the event queue and the
