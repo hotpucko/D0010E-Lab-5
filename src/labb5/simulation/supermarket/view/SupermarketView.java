@@ -4,7 +4,12 @@ import java.util.Observable;
 
 import labb5.simulation.general.Event;
 import labb5.simulation.general.StartEvent;
+import labb5.simulation.general.StopEvent;
 import labb5.simulation.general.View;
+import labb5.simulation.supermarket.events.ArrivalEvent;
+import labb5.simulation.supermarket.events.ClosingEvent;
+import labb5.simulation.supermarket.events.PayLeaveEvent;
+import labb5.simulation.supermarket.events.ShoppingEvent;
 import labb5.simulation.supermarket.state.SupermarketState;
 
 public class SupermarketView extends View{
