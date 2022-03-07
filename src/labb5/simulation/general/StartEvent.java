@@ -22,6 +22,13 @@ public class StartEvent extends Event {
 		super(simState, eventQueue, time);
 	}
 
+	/**
+	 * Runs the startevent for the simulation.
+	 * Generated an arrivalevent for the first arrival.
+	 * The following arrivalevent takes care of subsequent arrival events.
+	 * 
+	 * @param simState	The simstate object for which this event applies to.
+	 */
 	@Override
 	void run(SimState simState) {
 		SupermarketState state = (SupermarketState) this.simState;
@@ -31,9 +38,8 @@ public class StartEvent extends Event {
 				state.getCustomerFactory().generateCustomer());
 		eventQueue.add(firstArrival);
 		// Skapa ett arrival event
-
 	}
-
+	
 	@Override
 	public String toString() {
 		"Start"
