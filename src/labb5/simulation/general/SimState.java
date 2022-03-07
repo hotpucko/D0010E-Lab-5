@@ -76,7 +76,7 @@ public abstract class SimState extends Observable {
 	 * 
 	 * @return the current time of the simulation
 	 */
-	double getCurrentTime() {
+	public double getCurrentTime() {
 		return this.timeElapsed;
 	}
 
