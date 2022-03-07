@@ -65,6 +65,8 @@ public class SupermarketState extends SimState {
 	 * 			the minimum time for a customer to shop
 	 * @param pMax
 	 * 			the maximum time for a customer to shop
+	 * @param maxRegisters
+	 * 			the maximum amount of free registers in the shop
 	 */
 	public SupermarketState(int seed, int customerMax, double lambda, double kMin, double kMax, double pMin,
 			double pMax, int maxRegisters) {
