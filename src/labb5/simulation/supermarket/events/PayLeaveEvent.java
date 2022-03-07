@@ -59,18 +59,21 @@ public class PayLeaveEvent extends Event {
 			state.decrementCustomersInShop();
 			state.incrementProcessedCustomerCount();
 		}
-		
+
 	}
 
 	@Override
 	public String toString() {
 		return "Betalning";
 	}
-	
+
+	/**
+	 * Fetching the customerNumber.
+	 * 
+	 * @return the customerNumber of the specific event.
+	 */
 	public int getCustomerNumber() {
 		return this.customerNumber;
 	}
-
-
 
 }
