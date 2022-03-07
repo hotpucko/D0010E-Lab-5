@@ -66,6 +66,10 @@ public class PayLeaveEvent extends Event {
 	public String toString() {
 		return "Betalning";
 	}
+	
+	public int getCustomerNumber() {
+		return this.customerNumber;
+	}
 
 
 
