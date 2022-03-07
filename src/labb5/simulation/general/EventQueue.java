@@ -1,8 +1,8 @@
 package labb5.simulation.general;
 import labb5.simulation.general.Event;
 
-/*
- * @ author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
+/**
+ * @author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
  */
 public class EventQueue {
 	
@@ -12,7 +12,7 @@ public class EventQueue {
 	 * adds new event  to the waiting queue		 
 	 * @param Events from the specific simulator
 	*/
-	void add(Event e) {
+	public void add(Event e) {
 		eventQueue.add(e);
 		}
 	
@@ -23,7 +23,7 @@ public class EventQueue {
 	public boolean isEmpty() {
 		return eventQueue.isEmpty();
 	}
-	/* 
+	/** 
 	 * returns  the event which is next to occur from the list, and removes it from the queue
 	 * 
 	 * @return  The next event in the queue
