@@ -21,7 +21,7 @@ public class EventQueue {
 	 * @return  boolean, true if the queue is empty, false if not
 	 */
 	private boolean isEmpty() {
-		eventQueue.isEmpty();
+		return eventQueue.isEmpty();
 	}
 	/* 
 	 * returns  the event which is next to occur from the list, and removes it from the queue
