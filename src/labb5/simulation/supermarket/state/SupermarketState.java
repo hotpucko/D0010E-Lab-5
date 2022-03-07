@@ -67,7 +67,7 @@ public class SupermarketState extends SimState {
 	 * 			the maximum time for a customer to shop
 	 */
 	public SupermarketState(int seed, int customerMax, double lambda, double kMin, double kMax, double pMin,
-			double pMax) {
+			double pMax, int maxRegisters) {
 		super();
 		this.seed = seed;
 		this.customerMax = customerMax;
@@ -77,6 +77,7 @@ public class SupermarketState extends SimState {
 		this.pMin = pMin;
 		this.pMax = pMax;
 		this.customerMax = customerMax;
+		this.maxRegisters = maxRegisters;
 		this.customerFactory = new CustomerFactory();
 		this.shopQueue = new FIFO();
 		this.shoppingTimeRandomStream = new UniformRandomStream(pMin, pMax, seed);
