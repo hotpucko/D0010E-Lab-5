@@ -6,7 +6,7 @@ import labb5.simulation.supermarket.events.StopShopEvent;
 import labb5.simulation.supermarket.state.SupermarketState;
 import labb5.simulation.supermarket.view.SupermarketView;
 
-/*
+/**
  * General class which is responsible for bringing all elements of a supermarket simulation together.
  * Running the only method in the class  with desired parameters results in a printout
  *  of relevant data for how a supermarket would perform in such a situation.  
@@ -18,7 +18,7 @@ public class RunSim{
 	private SupermarketState simState;
 	private EventQueue queue;
 	
-	/*
+	/**
 	 * Constructor meant to intialize further use of the run function in different
 	 * contexts
 	 */
@@ -28,15 +28,18 @@ public class RunSim{
 		queue = new EventQueue();
 		
 	}
-
+/**
+ * Returns the simstate for external program functionality
+ * @return SupermarketState, the state
+ */
+	
 	public SupermarketState getState() {
 		return this.simState;
 	}
 	
-	/*
+	/**
 	 * Prints the state of a supermarket throughout a simulation.
 	 * 
-	 * @ return SimState returns the state of the simulation at the end of said simulation 
 	 */
 	public void run(double closingTime) {
 
