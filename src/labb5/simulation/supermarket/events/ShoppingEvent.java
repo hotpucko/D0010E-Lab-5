@@ -59,6 +59,15 @@ public class ShoppingEvent extends Event {
 			queueStatus.add(payLeave);
 		}
 	}
+	
+	/**
+	 * Fetching the customerNumber.
+	 * 
+	 * @return the customerNumber of the specific event.
+	 */
+	public int getCustomerNumber() {
+		return this.localCustNum;
+	}
 
 	@Override
 	public String toString() {
