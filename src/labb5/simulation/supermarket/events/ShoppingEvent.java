@@ -66,7 +66,7 @@ public class ShoppingEvent extends Event {
 	 * @return the customerNumber of the specific event.
 	 */
 	public int getCustomerNumber() {
-		return this.customerNumber;
+		return this.localCustNum;
 	}
 
 	@Override
