@@ -4,6 +4,7 @@ import labb5.simulation.general.Event;
 import labb5.simulation.general.EventQueue;
 import labb5.simulation.general.SimState;
 import labb5.simulation.supermarket.state.SupermarketState;
+import labb5.simulation.supermarket.state.utilities.FIFO;
 
 /**
  * PayLeaveEvent handles the customers which are placed in the FIFO-queue. Looks
@@ -44,24 +45,28 @@ public class PayLeaveEvent extends Event {
 	 * There after, it will remove the first element, increment the register by 1,
 	 * decrement customers by 1 and increment processed customers by 1.
 	 */
-	public void run(Simstate simState) {
+	@Override
+	public void run(SimState simState) {
 
-		SupermarketState state = (SupermarketState) this.simState;
-		state.update();
+		SupermarketState state = ((SupermarketState) this.simState);
+		state.update(this);
 
-		FIFO queue = state.getShopQueue();
+		FIFO queue = ((SupermarketState) state).getShopQueue();
 
 		if (!queue.isEmpty()) {
 			eventQueue.add(queue.removeFirst());
-			state.incrementRegister();
-			state.decrementCustomerInShop();
-			state.incrementProcessedCustomerount();
+			state.incrementRegisters();
+			state.decrementCustomersInShop();
+			state.incrementProcessedCustomerCount();
 		}
+		
 	}
 
 	@Override
 	public String toString() {
 		return "Betalning";
 	}
+
+
 
 }
