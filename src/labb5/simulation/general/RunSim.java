@@ -13,7 +13,6 @@ import labb5.simulation.supermarket.view.SupermarketView;
  * 
  *  @ author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
  */
-
 public class RunSim{
 	
 	private SupermarketState simState;
