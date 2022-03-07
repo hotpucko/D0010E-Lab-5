@@ -1,6 +1,6 @@
 package labb5.simulation.general;
 
-public abstract class SimState {
+import java.util.Observable;
 
 /**
  * State is the abstract base class for all state general state contexts. a
