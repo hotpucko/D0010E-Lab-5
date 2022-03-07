@@ -67,7 +67,7 @@ public class SupermarketState extends SimState {
 	 * 			the maximum time for a customer to shop
 	 */
 	public SupermarketState(int seed, int customerMax, double lambda, double kMin, double kMax, double pMin,
-			double pMax, int customerMax) {
+			double pMax) {
 		super();
 		this.seed = seed;
 		this.customerMax = customerMax;
