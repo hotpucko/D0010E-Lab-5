@@ -11,6 +11,7 @@ implements Comparable<SortedSequence<E>> {
 	private Vector<E> store = new Vector<E>();
 	
 	/**
+	/*
 	 * adds item to the sorted sequence
 	 */
 	public void add(E item) {
@@ -18,6 +19,7 @@ implements Comparable<SortedSequence<E>> {
 	}
 	
 	/**
+	 *
 	 * private implementation of add(E);
 	 *throws an exception if there is no item to put in the sequence
 	 *sorts the item based on the size of a comparable variable
@@ -39,20 +41,26 @@ implements Comparable<SortedSequence<E>> {
 				}
 		}
 	}
+  
 	/**
+	 *
 	 * returns the first element in the sequence
 	 *  @return the first element in the sequence
 	 */
 	public E smallest() {
 		return _smallest();
 	}
+  
 	/**
+	 *
 	 * private implementation of smallest()
 	 */
 	private E _smallest() {
 		return store.elementAt(0);
 	}
+  
 	/**
+	 *
 	 * tests if the sequence has no components
 	 * @return true if the sequence has no components
 	 */
@@ -61,6 +69,7 @@ implements Comparable<SortedSequence<E>> {
 	}
 	
 	/**
+	 *
 	 * tests if the sequence has no components
 	 * @return true if the sequence has no components
 	 */
@@ -70,13 +79,15 @@ implements Comparable<SortedSequence<E>> {
 	}
 	
 	/**
+	 *
 	 * removes the smallest comparable object of the sequence
 	 */
 	public void removeSmallest() throws NoSuchElementException{
 		_removeSmallest();
 	}
-	
+
 	/**
+	 *
 	 * removes the smallest comparable object of the sequence,
 	 * throws exception if no objects exist in the sequence
 	 */
@@ -87,21 +98,27 @@ implements Comparable<SortedSequence<E>> {
 			throw new NoSuchElementException();
 		}
 	}
+  
 	/**
+	 *
 	 * returns the size of the sorted sequence
 	 * @return  the size of the sorted sequence
 	 */
 	public int size() {
 		return _size();	
 }
+
 	/**
+	 *
 	 * returns the size of the sorted sequence
 	 * @return  the size of the sorted sequence
 	 */
 	private int _size() {
 		return store.size();
 	}
+  
 	/**
+	 *
 	 * compares ordered sequences
 	 * 
 	 * @return  -1, 0,or 1 depending on whether
@@ -110,7 +127,9 @@ implements Comparable<SortedSequence<E>> {
 		public int compareTo(SortedSequence<E> o) {
 			return _compareTo(o);
 	}
+  
 		/**
+		 *
 		 * compares ordered sequences
 		 * 
 		 * @return  -1, 0,or 1 depending on whether
