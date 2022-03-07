@@ -7,13 +7,22 @@ import labb5.simulation.general.Event;
 public class EventQueue {
 	
 	SortedSequence<Event> eventQueue = new SortedSequence<Event>();	
-	/*
+	
+	/**
 	 * adds new event  to the waiting queue		 
 	 * @param Events from the specific simulator
 	*/
 	void add(Event e) {
 		eventQueue.add(e);
 		}
+	
+	/**
+	 * Checks if the eventQueue is empty
+	 * @return  boolean, true if the queue is empty, false if not
+	 */
+	private boolean isEmpty() {
+		eventQueue.isEmpty();
+	}
 	/* 
 	 * returns  the event which is next to occur from the list, and removes it from the queue
 	 * 
