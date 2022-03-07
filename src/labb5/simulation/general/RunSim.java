@@ -14,24 +14,36 @@ import labb5.simulation.supermarket.view.SupermarketView;
  *  @ author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
  */
 
-public class RunSim {
 
-	private SupermarketView view;
+
+public class RunSim{
+	
 	private SupermarketState simState;
 	private EventQueue queue;
+	
+	/*
+	 * Constructor meant to intialize further use of the run function in different contexts
+	 */
 
+	public RunSim(int customerMax, double lambda, double kMin, double kMax, double pMin,
+			double pMax, int seed, int maxRegisters){
+		simState = new SupermarketState(seed, customerMax, lambda, kMin, kMax, pMin, pMax, maxRegisters);
+		queue = new EventQueue();
+		
+	}
+
+	public SupermarketState getState() {
+		return this.simState;
+	}
+	
 	/*
 	 * Prints the state of a supermarket throughout a simulation.
 	 * 
 	 * @ return SimState returns the state of the simulation at the end of said simulation 
 	 */
 	
-	public SupermarketState run(int maxRegisters, int customerMax, double lambda, double kMin, double kMax, double pMin,
-			double pMax, double closingTime, int seed) {
+	public void run(double closingTime) {
 
-		simState = new SupermarketState(seed, customerMax, lambda, kMin, kMax, pMin, pMax);
-		view = new SupermarketView(simState);
-		queue = new EventQueue();
 
 		Event startEvent = new StartShopEvent(simState, queue);
 		Event closingEvent = new ClosingEvent(simState, queue, closingTime);
@@ -45,7 +57,5 @@ public class RunSim {
 			Event x = queue.poll();
 			x.run(simState);
 		} while (!queue.isEmpty());
-
-		return simState;
 	}
 }
