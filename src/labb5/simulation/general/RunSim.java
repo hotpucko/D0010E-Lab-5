@@ -43,7 +43,6 @@ public class RunSim{
 	
 	public void run(double closingTime) {
 
-
 		Event startEvent = new StartShopEvent(simState, queue);
 		Event closingEvent = new ClosingEvent(simState, queue, closingTime);
 		Event stopEvent = new StopShopEvent(simState, queue);
