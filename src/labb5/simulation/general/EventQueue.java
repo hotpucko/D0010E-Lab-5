@@ -20,7 +20,7 @@ public class EventQueue {
 	 * Checks if the eventQueue is empty
 	 * @return  boolean, true if the queue is empty, false if not
 	 */
-	private boolean isEmpty() {
+	public boolean isEmpty() {
 		return eventQueue.isEmpty();
 	}
 	/* 
