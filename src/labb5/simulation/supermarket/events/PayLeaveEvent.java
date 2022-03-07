@@ -10,15 +10,14 @@ import labb5.simulation.supermarket.state.SupermarketState;
  * if the FIFO-queue is empty or not. Then selects the first Event-element in
  * the FIFO-queue and places it into the eventQueue so that it can be processed.
  * 
- * 
  * And later increment Register as well as processed customers and decrement
  * customers in the shop.
  * 
  * @author Dino Lolic, William Kiwanuka, Stefan Jonsson, Arvid From
- * 
  */
-
 public class PayLeaveEvent extends Event {
+
+	int customerNumber;
 
 	/**
 	 * Constructor for PayLeaveEvent.
@@ -29,11 +28,7 @@ public class PayLeaveEvent extends Event {
 	 *                       the queue.
 	 * @param time           The absolute time for the event.
 	 * @param customerNumber Unique number for the customer.
-	 * 
 	 */
-
-	int customerNumber;
-
 	public PayLeaveEvent(SimState simState, EventQueue eventQueue, double time, int customerNumber) {
 		super(simState, eventQueue, time);
 
@@ -48,9 +43,7 @@ public class PayLeaveEvent extends Event {
 	 * 
 	 * There after, it will remove the first element, increment the register by 1,
 	 * decrement customers by 1 and increment processed customers by 1.
-	 *
 	 */
-
 	public void run(Simstate simState) {
 
 		SupermarketState state = (SupermarketState) this.simState;
@@ -59,8 +52,7 @@ public class PayLeaveEvent extends Event {
 		FIFO queue = state.getShopQueue();
 
 		if (!queue.isEmpty()) {
-			eventQueue.add(queue.getFirst());
-			queue.removeFirst();
+			eventQueue.add(queue.removeFirst());
 			state.incrementRegister();
 			state.decrementCustomerInShop();
 			state.incrementProcessedCustomerount();
