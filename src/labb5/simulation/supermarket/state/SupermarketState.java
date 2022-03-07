@@ -95,7 +95,7 @@ public class SupermarketState extends SimState {
 
 		if (this.isRunning()) {
 			totalTimeRegistersIdled += (e.getTime() - lastEventTime) * currentRegisters;
-			totalTimeQueued += (e.getTime() - lastEvent) * getShopQueue().getSize();
+			totalTimeQueued += (e.getTime() - lastEventTime) * getShopQueue().getSize();
 		}
 
 		super.update(e);
