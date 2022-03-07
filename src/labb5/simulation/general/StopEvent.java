@@ -37,6 +37,6 @@ public class StopEvent extends Event {
 	public void run(SimState simState) {
 		SupermarketState state = (SupermarketState) this.simState;
 		state.emergencyBreak(); // Signal that the simulation is done.
-		state.update();
+		((SupermarketState) this.simState).update(this);
 	}
 }
