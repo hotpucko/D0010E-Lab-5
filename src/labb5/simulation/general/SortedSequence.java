@@ -7,12 +7,21 @@ import java.util.NoSuchElementException;
  */
 public class SortedSequence<E extends Comparable<E>> 
 implements Comparable<SortedSequence<E>> {
-	int b =3;
+	
 	private Vector<E> store = new Vector<E>();
 	
+	/*
+	 * adds item to the sorted sequence
+	 */
 	public void add(E item) {
 		_add (item);
 	}
+	
+	/*
+	 * private implementation of add(E);
+	 *throws an exception if there is no item to put in the sequence
+	 *sorts the item based on the size of a comparable variable
+	 */
 	private void _add(E item) throws IllegalArgumentException {
 		if (item == null) {
 			throw new NullPointerException();
@@ -30,27 +39,47 @@ implements Comparable<SortedSequence<E>> {
 				}
 		}
 	}
-	
-	
+	/*
+	 * returns the first element in the sequence
+	 *  @return the first element in the sequence
+	 */
 	public E smallest() {
 		return _smallest();
 	}
+	/*
+	 * private implementation of smallest()
+	 */
 	private E _smallest() {
 		return store.elementAt(0);
 	}
-	
+	/*
+	 * tests if the sequence has no components
+	 * @return true if the sequence has no components
+	 */
 	public boolean isEmpty() {
 		return _isEmpty();
 	}
+	
+	/*
+	 * tests if the sequence has no components
+	 * @return true if the sequence has no components
+	 */
 	
 	private boolean _isEmpty() {
 	return store.isEmpty();
 	}
 	
-	
+	/*
+	 * removes the smallest comparable object of the sequence
+	 */
 	public void removeSmallest() throws NoSuchElementException{
 		_removeSmallest();
 	}
+	
+	/*
+	 * removes the smallest comparable object of the sequence,
+	 * throws exception if no objects exist in the sequence
+	 */
 	private void _removeSmallest() {
 		try {
 			store.removeElementAt(0); 
@@ -58,17 +87,35 @@ implements Comparable<SortedSequence<E>> {
 			throw new NoSuchElementException();
 		}
 	}
-	
+	/*
+	 * returns the size of the sorted sequence
+	 * @return  the size of the sorted sequence
+	 */
 	public int size() {
 		return _size();	
 }
+	/*
+	 * returns the size of the sorted sequence
+	 * @return  the size of the sorted sequence
+	 */
 	private int _size() {
 		return store.size();
 	}
+	/*
+	 * compares ordered sequences
+	 * 
+	 * @return  -1, 0,or 1 depending on whether
+	 *  the first sequence is smaller equal or larger than the second
+	 */
 		public int compareTo(SortedSequence<E> o) {
 			return _compareTo(o);
 	}
-		
+		/*
+		 * compares ordered sequences
+		 * 
+		 * @return  -1, 0,or 1 depending on whether
+		 *  the first sequence is smaller equal or larger than the second
+		 */
 		private int _compareTo(SortedSequence<E> other) {
 			int result =0;
 			if (this._isEmpty() && other._isEmpty()) {
@@ -97,22 +144,21 @@ implements Comparable<SortedSequence<E>> {
 			}
 			return result;
 		}
+}
 	
-		public String toString() {
-			return "-[" + showElements (this) + "]-";
-		}
-		private String showElements(SortedSequence<E> seq) {
-			if (seq.isEmpty()) {
-				return "";
-			} else if (seq._size() == 1) {
-				return seq._smallest() + "";
-			} else {
-				E smallest = seq._smallest();
-				seq._removeSmallest();
-				String result = smallest + "," + showElements(seq);
-				seq._add(smallest);
-				return result;
-			}
-		}
-	}
-
+//		public String toString() {
+//			return "-[" + showElements (this) + "]-";
+//		}
+//		private String showElements(SortedSequence<E> seq) {
+//			if (seq.isEmpty()) {
+//				return "";
+//			} else if (seq._size() == 1) {
+//				return seq._smallest() + "";
+//			} else {
+//				E smallest = seq._smallest();
+//				seq._removeSmallest();
+//				String result = smallest + "," + showElements(seq);
+//				seq._add(smallest);
+//				return result;
+//				}
+//		}
