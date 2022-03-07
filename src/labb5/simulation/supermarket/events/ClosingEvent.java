@@ -27,7 +27,7 @@ public class ClosingEvent extends Event {
 	 * shop closes, barring future customers from entry.
 	 */
 	public void run(SimState simState) {
-		((SupermarketState) this.simState).update();
+		((SupermarketState) this.simState).update(this);
 		((SupermarketState) this.simState).close();
 	}
 
