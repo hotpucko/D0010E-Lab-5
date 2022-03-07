@@ -12,10 +12,6 @@ import labb5.simulation.supermarket.state.SupermarketState;
  * the current customer.
  * 
  * @author Dino Lolic, Stefan Jonsson, Arvid From, William Kiwanuka
- * @param simState
- * @param eventQueue
- * @param time,           a time when the event will occur.
- * @param customerNumber, a certain customer.
  * 
  */
 public class ArrivalEvent extends Event {
@@ -30,14 +26,20 @@ public class ArrivalEvent extends Event {
 	 * @param eventQueue
 	 * @param time        Absolute time.
 	 * @param customerNum Customer number of a specific customer.
-	 * 
-	 * @author William Kiwanuka, Dino Lolic, Stefan Jonsson, Arvid From
 	 */
 	public ArrivalEvent(SimState simState, EventQueue eventQueue, double time, int customerNum) {
 		super(simState, eventQueue, time);
 		customerNumber = customerNum;
 	}
-
+	
+	/**
+	 * Runs the specific ArrivalEvent. Upon running,
+	 * a new ArrivalEvent is created at an appropriate time
+	 * for a new customer. If the store is open and at max 
+	 * capacity, the rejected tracker in supermarketstate 
+	 * is incremented, else a ShoppingEvent is created for 
+	 * this customer at an appropriate time.
+	 */
 	public void run(SimState simState) {
 
 		SupermarketState state = (SupermarketState) this.simState;
