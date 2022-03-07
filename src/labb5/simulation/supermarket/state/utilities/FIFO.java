@@ -50,7 +50,7 @@ public class FIFO {
 	 * 
 	 * @return true if the queue is empty, elsewise false.
 	 */
-	private boolean isEmpty() {
+	public boolean isEmpty() {
 		return shopQueue.isEmpty();
 	}
 
@@ -59,7 +59,7 @@ public class FIFO {
 	 * 
 	 * @return int the amount of people in the queue
 	 */
-	private int getSize() {
+	public int getSize() {
 		return shopQueue.size();
 	}
 
