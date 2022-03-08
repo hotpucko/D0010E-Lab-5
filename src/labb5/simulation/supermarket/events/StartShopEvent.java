@@ -23,9 +23,12 @@ public class StartShopEvent extends StartEvent {
 	 * @param eventQueue     Reference variable for EventQueue, to add new events to
 	 *                       the queue.
 	 * @param time           The absolute time for the event, set to 0.
+	 * 
+	 * @param startEvent	 Creates an object for StartEvent.
 	 */
 	public StartShopEvent(SimState simState, EventQueue eventQueue) {
-		super(simState, eventQueue, 0);
+		super(simState, eventQueue, 0.00);
+		startEvent = new StartEvent(simState, eventQueue, 0.00);
 	}
 	
 	/**
