@@ -19,8 +19,8 @@ public class StopShopEvent extends StopEvent {
 	/**
 	 * Constructor which inherits the general parameters of the simulation
 	 */
-	public StopShopEvent(SimState simState, EventQueue eventQueue, double time) {
-		super(simState, eventQueue, time);
+	public StopShopEvent(SimState simState, EventQueue eventQueue) {
+		super(simState, eventQueue, 99999);
 
 	}
 
