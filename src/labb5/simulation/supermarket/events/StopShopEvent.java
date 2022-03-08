@@ -11,8 +11,9 @@ import labb5.simulation.general.StopEvent;
  * @author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
  * 
  */
-public class StopShopEvent extends StopEvent {
 
+public class StopShopEvent extends StopEvent {
+int b=2;
 	private StopEvent myStopEvent;
 
 	/**
