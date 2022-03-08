@@ -14,11 +14,10 @@ import labb5.simulation.general.SimState;
  */
 public class StartShopEvent extends StartEvent {
 
-	private int customerNumber;
 	private StartEvent startEvent;
 	
 	/**
-	 * Constructor for PayLeaveEvent.
+	 * Constructor for StarShopEvent.
 	 *
 	 * @param simState       Reference variable to the SimState which will be casted
 	 *                       as a SupermarketState.
@@ -27,9 +26,8 @@ public class StartShopEvent extends StartEvent {
 	 * @param time           The absolute time for the event, set to 0.
 	 * @param customerNumber Unique number for the customer.
 	 */
-	public StartShopEvent(SimState simState, EventQueue eventQueue, double time, int customerNumber) {
+	public StartShopEvent(SimState simState, EventQueue eventQueue, double time) {
 		super(simState, eventQueue, 0);
-		this.customerNumber = customerNumber;
 	}
 	
 	/**
@@ -40,14 +38,5 @@ public class StartShopEvent extends StartEvent {
 	public void run(SimState simState) {
 		startEvent.run(this.simState);
 		startEvent.toString();
-	}
-	
-	/**
-	 * Fetching the customerNumber.
-	 * 
-	 * @return the customerNumber of the specific event.
-	 */
-	public int getCustomerNumber() {
-		return this.customerNumber;
 	}
 }
