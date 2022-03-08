@@ -20,7 +20,6 @@ public class StopShopEvent extends StopEvent {
 	 */
 	public StopShopEvent(SimState simState, EventQueue eventQueue, double time, int customerNum) {
 		super(simState, eventQueue, time);
-		StopEvent myStopEvent = new StopEvent(simState, eventQueue, time);
 
 	}
 
