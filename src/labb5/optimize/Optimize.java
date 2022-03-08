@@ -3,21 +3,24 @@ package labb5.optimize;
 import java.util.Random;
 
 import labb5.simulation.general.RunSim;
+import labb5.simulation.supermarket.state.SupermarketState;
 
 public class Optimize {
 
 	Random rnd;
+	SupermarketState simState;
 	
 	public Optimize() {
 		
 	}
 	
-	//detta är mitt försök med optimize metoden, se om ni löser det på något bättre sätt :shrug:
+	//detta ï¿½r mitt fï¿½rsï¿½k med optimize metoden, se om ni lï¿½ser det pï¿½ nï¿½got bï¿½ttre sï¿½tt :shrug:
 	
 	public int metod1(double lambda, double kMin, double kMax, double pMin, double pMax, int seed, int registers, int customerMax, double closingTime) {
 		RunSim sim = new RunSim(customerMax, lambda, kMin, kMax, pMin, pMax, seed, registers);
+		this.simState = sim.getState();
 		sim.run(closingTime);
-		return sim.state.getCustomersRejected(); //sim.state behöver visst vara public, sorry arvid, eller gör en getter för simstate :shrug:
+		return simState.getCustomersRejected(); //sim.state behï¿½ver visst vara public, sorry arvid, eller gï¿½r en getter fï¿½r simstate :shrug:
 	}
 	
 	public int metod2(double lambda, double kMin, double kMax, double pMin, double pMax, int seed, int customerMax, double closingTime) {
