@@ -11,6 +11,7 @@ import labb5.simulation.general.StopEvent;
  * @author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
  * 
  */
+
 public class StopShopEvent extends StopEvent {
 
 	private StopEvent myStopEvent;
@@ -18,7 +19,7 @@ public class StopShopEvent extends StopEvent {
 	/**
 	 * Constructor which inherits the general parameters of the simulation
 	 */
-	public StopShopEvent(SimState simState, EventQueue eventQueue, double time, int customerNum) {
+	public StopShopEvent(SimState simState, EventQueue eventQueue, double time) {
 		super(simState, eventQueue, time);
 
 	}
