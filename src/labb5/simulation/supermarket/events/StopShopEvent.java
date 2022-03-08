@@ -13,7 +13,7 @@ import labb5.simulation.general.StopEvent;
  */
 
 public class StopShopEvent extends StopEvent {
-int b=2;
+
 	private StopEvent myStopEvent;
 
 	/**
