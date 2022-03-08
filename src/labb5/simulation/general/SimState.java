@@ -60,7 +60,7 @@ public abstract class SimState extends Observable {
 	 *         active; <code>false</code> otherwise
 	 */
 	public boolean isRunning() {
-		return isRunning();
+		return isRunning;
 	}
 
 	/**
