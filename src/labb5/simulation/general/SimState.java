@@ -47,7 +47,6 @@ public abstract class SimState extends Observable {
 		if (!emergencyBreak) {
 			this.timeElapsed += e.getTime() - lastEventTime;
 		}
-		
 		setChanged();
 		notifyObservers(e);
 		lastEventTime = e.getTime();
