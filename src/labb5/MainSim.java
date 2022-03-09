@@ -10,7 +10,7 @@ public class MainSim {
 		double kMax = 3.0;
 		double pMin = 0.5;
 		double pMax = 1.0;
-		double closingTime = 999;
+		double closingTime = 10.0;
 		
 		int registers = 2;
 		int customerMax = 5;
