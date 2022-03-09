@@ -48,6 +48,7 @@ public abstract class SimState extends Observable {
 			this.timeElapsed += e.getTime() - lastEventTime;
 		}
 
+		System.out.println("x");
 		setChanged();
 		notifyObservers(e);
 		lastEventTime = e.getTime();

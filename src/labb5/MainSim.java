@@ -1,5 +1,8 @@
 package labb5;
 import labb5.optimize.Optimize;
+import labb5.simulation.general.RunSim;
+import labb5.simulation.general.View;
+import labb5.simulation.supermarket.view.SupermarketView;
 
 public class MainSim {
 	private static Optimize optimize = new Optimize();
@@ -16,6 +19,12 @@ public class MainSim {
 		int customerMax = 5;
 		int seed = 1234;
 		
-		optimize.metod1(lambda, kMin, kMax, pMin, pMax, seed, registers, customerMax, closingTime);
+		
+		RunSim sim = new RunSim(customerMax, lambda, kMin, kMax, pMin, pMax, seed, registers);
+
+		View v = new SupermarketView(sim.getState());
+
+		sim.run(closingTime);
+		//optimize.metod1(lambda, kMin, kMax, pMin, pMax, seed, registers, customerMax, closingTime);
 	}
 }

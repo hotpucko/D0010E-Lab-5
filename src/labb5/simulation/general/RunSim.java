@@ -52,6 +52,7 @@ public class RunSim{
 		queue.add(stopEvent);
 
 		do {
+			System.out.println(queue.eventQueue.toString());
 			Event x = queue.poll();
 			x.run(simState);
 		} while (!queue.isEmpty());

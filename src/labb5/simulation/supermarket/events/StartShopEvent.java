@@ -13,7 +13,6 @@ import labb5.simulation.general.SimState;
  */
 public class StartShopEvent extends StartEvent {
 
-	private StartEvent startEvent;
 	
 	/**
 	 * Constructor for StartShopEvent.
@@ -28,7 +27,6 @@ public class StartShopEvent extends StartEvent {
 	 */
 	public StartShopEvent(SimState simState, EventQueue eventQueue) {
 		super(simState, eventQueue, 0.00);
-		startEvent = new StartEvent(simState, eventQueue, 0.00);
 	}
 	
 	/**
@@ -37,7 +35,11 @@ public class StartShopEvent extends StartEvent {
 	 */
 	@Override
 	public void run(SimState simState) {
-		startEvent.run(this.simState);
-		startEvent.toString();
+		super.run(simState);
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString();
 	}
 }
