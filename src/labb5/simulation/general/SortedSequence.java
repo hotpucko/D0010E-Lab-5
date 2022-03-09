@@ -1,5 +1,6 @@
 package labb5.simulation.general;
 import java.util.Vector;
+
 import java.util.NoSuchElementException;
 
 /**
@@ -163,21 +164,23 @@ implements Comparable<SortedSequence<E>> {
 			}
 			return result;
 		}
-}
+
 	
-//		public String toString() {
-//			return "-[" + showElements (this) + "]-";
-//		}
-//		private String showElements(SortedSequence<E> seq) {
-//			if (seq.isEmpty()) {
-//				return "";
-//			} else if (seq._size() == 1) {
-//				return seq._smallest() + "";
-//			} else {
-//				E smallest = seq._smallest();
-//				seq._removeSmallest();
-//				String result = smallest + "," + showElements(seq);
-//				seq._add(smallest);
-//				return result;
-//				}
-//		}
+public String toString() {
+	return "-[" + showElements(this) + "]-";
+}
+
+private String showElements(SortedSequence<E> seq) {
+	if (seq._isEmpty()) {
+		return "";
+	} else if (seq.size() == 1) {
+		return seq._smallest()+"";
+	} else {
+		E smallest = seq._smallest();
+		seq._removeSmallest();
+		String result = smallest + "," + showElements(seq);
+		seq._add(smallest);
+		return result;
+	}
+}
+}

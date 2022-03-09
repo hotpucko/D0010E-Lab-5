@@ -47,7 +47,7 @@ public abstract class SimState extends Observable {
 		if (!emergencyBreak) {
 			this.timeElapsed += e.getTime() - lastEventTime;
 		}
-
+		
 		setChanged();
 		notifyObservers(e);
 		lastEventTime = e.getTime();
@@ -88,5 +88,10 @@ public abstract class SimState extends Observable {
 	 */
 	protected boolean isEmergencyBreak() {
 		return emergencyBreak;
+	}
+	
+	public void run()
+	{
+		isRunning = true;
 	}
 }

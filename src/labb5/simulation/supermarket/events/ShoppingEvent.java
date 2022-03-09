@@ -46,18 +46,20 @@ public class ShoppingEvent extends Event {
 		((SupermarketState) this.simState).update(this);
 		
 		double payLeaveTime = state.generatePayLeaveTime();
-		FIFO queueStatus = state.getShopQueue();
 
 		double goPayTime = payLeaveTime + time;
 
 		PayLeaveEvent payLeave = new PayLeaveEvent(simState, eventQueue, goPayTime, localCustNum);
 
-		if (state.getFreeRegisters() > 0) {
-			eventQueue.add(payLeave);
-			state.decrementRegisters();
-		} else if (state.getFreeRegisters() == 0) {
-			queueStatus.add(payLeave);
-		}
+		 if (state.getFreeRegisters() > 0) {
+	            eventQueue.add(payLeave);
+	            state.decrementRegisters();
+
+	        } else {
+
+	   		 state.getShopQueue().add(payLeave);
+			 state.IncrementCustomersQueued();
+	        }
 	}
 	
 	/**

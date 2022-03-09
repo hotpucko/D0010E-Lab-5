@@ -50,21 +50,22 @@ public class ArrivalEvent extends Event {
 		double nextArrTime = absTime + arrTime;
 		double nextShopTime = absTime + shopTime;
 
+		
 		if (state.isOpen()) {
-			ArrivalEvent nextArrivalEvent = new ArrivalEvent(this.simState, this.eventQueue, nextArrTime,
-					state.getCustomerFactory().generateCustomer());
-			if (state.isMaxCapacity()) {
-				state.incrementRejected();
-				eventQueue.add(nextArrivalEvent);
-			} else {
-				state.incrementCustomersInShop();
-				ShoppingEvent goShopping = new ShoppingEvent(this.simState, this.eventQueue, nextShopTime,
-						customerNumber);
+            ArrivalEvent nextArrivalEvent = new ArrivalEvent(this.simState, this.eventQueue, nextArrTime,
+                    state.getCustomerFactory().generateCustomer());
+            if (state.isMaxCapacity()) {
+                state.incrementRejected();
+                eventQueue.add(nextArrivalEvent);
+            } else {
+                state.incrementCustomersInShop();
+                ShoppingEvent goShopping = new ShoppingEvent(this.simState, this.eventQueue, nextShopTime,
+                        customerNumber);
 
-				this.eventQueue.add(nextArrivalEvent);
-				this.eventQueue.add(goShopping);
-			}
-		}
+                this.eventQueue.add(nextArrivalEvent);
+                this.eventQueue.add(goShopping);
+            }
+        }
 	}
 
 	/**

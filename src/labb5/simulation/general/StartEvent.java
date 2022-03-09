@@ -36,6 +36,7 @@ public class StartEvent extends Event {
 	@Override
 	public void run(SimState simState) {
 		SupermarketState state = (SupermarketState) this.simState;
+		state.run();
 		((SupermarketState) this.simState).open();
 		((SupermarketState) this.simState).update(this);
 

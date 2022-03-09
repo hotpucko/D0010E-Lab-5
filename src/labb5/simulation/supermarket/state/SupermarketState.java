@@ -85,6 +85,7 @@ public class SupermarketState extends SimState {
 		this.shoppingTimeRandomStream = new UniformRandomStream(pMin, pMax, seed);
 		this.payLeaveTimeRandomStream = new UniformRandomStream(kMin, kMax, seed);
 		this.arrivalTimeRandomStream = new ExponentialRandomStream(lambda, seed);
+		this.currentRegisters = maxRegisters;
 	}
 
 	/**
@@ -358,5 +359,10 @@ public class SupermarketState extends SimState {
 	 */
 	public int getSeed() {
 		return this.seed;
+	}
+
+	public void IncrementCustomersQueued() {
+		this.totalCustomersQueued++;
+		
 	}
 }

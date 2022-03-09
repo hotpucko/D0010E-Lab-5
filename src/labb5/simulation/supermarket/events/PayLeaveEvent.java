@@ -55,11 +55,12 @@ public class PayLeaveEvent extends Event {
 
 		if (!queue.isEmpty()) {
 			eventQueue.add(queue.removeFirst());
-			state.incrementRegisters();
-			state.decrementCustomersInShop();
-			state.incrementProcessedCustomerCount();
+			state.decrementRegisters();
 		}
 
+		state.incrementRegisters();
+		state.decrementCustomersInShop();
+		state.incrementProcessedCustomerCount();
 	}
 
 	@Override

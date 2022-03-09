@@ -14,8 +14,6 @@ import labb5.simulation.general.StopEvent;
 
 public class StopShopEvent extends StopEvent {
 
-	private StopEvent myStopEvent;
-
 	/**
 	 * Constructor which inherits the general parameters of the simulation
 	 */
@@ -28,7 +26,7 @@ public class StopShopEvent extends StopEvent {
 	 * Stops the simulation
 	 */
 	public void run() {
-		this.myStopEvent.run(simState);
+super.run(simState);
 	}
 
 	/**
@@ -37,7 +35,7 @@ public class StopShopEvent extends StopEvent {
 	 * @return string representation of finished sim
 	 */
 	public String toString() {
-		return this.myStopEvent.toString();
+		return super.toString();
 	}
 
 }
