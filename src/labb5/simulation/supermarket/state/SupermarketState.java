@@ -35,7 +35,6 @@ public class SupermarketState extends SimState {
 	private boolean isShopOpen;
 	private double totalTimeQueued;
 	private double totalTimeRegistersIdled;
-	private double lastEventTime;
 	private double lambda;
 	private double kMin;
 	private double kMax;
@@ -98,6 +97,7 @@ public class SupermarketState extends SimState {
 	public void update(Event e) {
 
 		if (this.isRunning()) {
+			//System.out.println(String.format("registersDelta: %f | queueDelta: %f", (e.getTime() - lastEventTime) * currentRegisters, (e.getTime() - lastEventTime) * getShopQueue().getSize()));
 			totalTimeRegistersIdled += (e.getTime() - lastEventTime) * currentRegisters;
 			totalTimeQueued += (e.getTime() - lastEventTime) * getShopQueue().getSize();
 		}
