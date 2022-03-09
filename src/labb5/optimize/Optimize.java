@@ -18,8 +18,8 @@ public class Optimize {
 	
 	public int metod1(double lambda, double kMin, double kMax, double pMin, double pMax, int seed, int registers, int customerMax, double closingTime) {
 		RunSim sim = new RunSim(customerMax, lambda, kMin, kMax, pMin, pMax, seed, registers);
-		this.simState = sim.getState();
 		sim.run(closingTime);
+		this.simState = sim.getState();
 		return simState.getCustomersRejected(); //sim.state beh�ver visst vara public, sorry arvid, eller g�r en getter f�r simstate :shrug:
 	}
 	
