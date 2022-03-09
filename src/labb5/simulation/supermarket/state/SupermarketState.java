@@ -121,6 +121,10 @@ public class SupermarketState extends SimState {
 	public void close() {
 		this.isShopOpen = false;
 	}
+	 
+	public void open()  {
+		this.isShopOpen = true;
+	}
 	
 	/**
 	 * checks if the maximum capacity of customers is achieved
