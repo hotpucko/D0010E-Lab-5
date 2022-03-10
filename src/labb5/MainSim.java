@@ -2,6 +2,7 @@ package labb5;
 import labb5.optimize.Optimize;
 import labb5.simulation.general.RunSim;
 import labb5.simulation.general.View;
+import labb5.simulation.supermarket.state.SupermarketState;
 import labb5.simulation.supermarket.view.SupermarketView;
 
 public class MainSim {
@@ -27,9 +28,11 @@ public class MainSim {
 		//sim.run(closingTime);
 		//System.out.println(String.valueOf(optimize.metod3(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime)));
 	
+		
+		System.out.println(optimize.metod3(50, 0.2, 0.3, 0.45d, 0.65, 42, 100, 20));
 	
-		int ex1 = optimize.metod3(1, 2, 3, 0.5d, 1d, 1234, 5, 10);
-		System.out.println(String.format("ex1: %s", String.valueOf(ex1)));
+		//SupermarketState ex1 = optimize.metod3(1, 2, 3, 0.5d, 1d, 1234, 5, 10);
+		/*System.out.println(String.format("ex1: %s", String.valueOf(ex1)));
 		int ex2 = optimize.metod3(2, 2, 3, 0.5d, 1, 1234, 7, 10);
 		System.out.println(String.format("ex2: %s", String.valueOf(ex2)));
 		int ex3 = optimize.metod3(3, 0.35d, 0.65d, 0.6d, 0.9d, 13, 7, 8);
@@ -41,7 +44,7 @@ public class MainSim {
 		int ex6 = optimize.metod3(700, 0.2d, 0.3d, 0.45d, 0.65d, 42, 1400, 20);
 		System.out.println(String.format("ex6: %s", String.valueOf(ex6)));
 		int ex7 = optimize.metod3(2000,  0.2, 0.3, 0.45, 0.65, 42,  1400, 20.0d);
-		System.out.println(String.format("ex7: %s", String.valueOf(ex7)));
+		System.out.println(String.format("ex7: %s", String.valueOf(ex7)));*/
 				
 	}
 }
