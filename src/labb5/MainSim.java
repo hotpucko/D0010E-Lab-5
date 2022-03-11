@@ -1,4 +1,6 @@
 package labb5;
+import javax.print.attribute.standard.PrinterLocation;
+
 import labb5.optimize.Optimize;
 import labb5.simulation.general.RunSim;
 import labb5.simulation.general.View;
@@ -28,9 +30,13 @@ public class MainSim {
 		//sim.run(closingTime);
 		//System.out.println(String.valueOf(optimize.metod3(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime)));
 	
+		long startTime = System.currentTimeMillis();
 		
-		System.out.println(optimize.metod3(50, 0.2, 0.3, 0.45d, 0.65, 42, 100, 20));
-	
+		SupermarketState state = optimize.metod3(50, 0.2, 0.3, 0.45d, 0.65, 42, 100, 20);
+		long endTime = System.currentTimeMillis();
+		System.out.println(String.format("registers: %d | RejectedCustomers: %d", state.getMaxRegistersCount(), state.getCustomersRejected()));
+		System.out.println(String.format("That took %f milliseconds", new Double(endTime - startTime)));
+		
 		//SupermarketState ex1 = optimize.metod3(1, 2, 3, 0.5d, 1d, 1234, 5, 10);
 		/*System.out.println(String.format("ex1: %s", String.valueOf(ex1)));
 		int ex2 = optimize.metod3(2, 2, 3, 0.5d, 1, 1234, 7, 10);

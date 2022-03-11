@@ -31,16 +31,19 @@ public class Optimize {
 			return metod1(lambda, kMin, kMax, pMin, pMax, seed, min, customerMax, closingTime);
 		}
 		
-		
+		SupermarketState lower = metod1(lambda, kMin, kMax, pMin, pMax, seed, min, customerMax, closingTime);
+		SupermarketState middle = metod1(lambda, kMin, kMax, pMin, pMax, seed, Math.floorDiv(min + max, 2), customerMax, closingTime);
+		SupermarketState upper = metod1(lambda, kMin, kMax, pMin, pMax, seed, max, customerMax, closingTime);
 		//recursive case
-		SupermarketState lower = metod2(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime, min, Math.floorDiv(min + max, 2));
-		SupermarketState upper = metod2(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime, (int)Math.ceil(new Double(min + max)/2d), max);
-		
-		if (lower.getCustomersRejected() <= upper.getCustomersRejected()) {
-			return lower;
+		if(middle.getCustomersRejected() < upper.getCustomersRejected())
+			return metod2(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime, min, Math.floorDiv(min + max, 2));
+		return metod2(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime, (int)Math.ceil(new Double(min + max)/2d), max);
+		/*
+		if (lowerRecursion.getCustomersRejected() <= upperRecursion.getCustomersRejected()) {
+			return lowerRecursion;
 		}
-		return upper;
-		
+		return upperRecursion;
+		*/
 		
 		
 		/*int registers = customerMax;
