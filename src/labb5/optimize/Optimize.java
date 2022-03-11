@@ -35,7 +35,7 @@ public class Optimize {
 		SupermarketState middle = metod1(lambda, kMin, kMax, pMin, pMax, seed, Math.floorDiv(min + max, 2), customerMax, closingTime);
 		SupermarketState upper = metod1(lambda, kMin, kMax, pMin, pMax, seed, max, customerMax, closingTime);
 		//recursive case
-		if(middle.getCustomersRejected() < upper.getCustomersRejected())
+		if(middle.getCustomersRejected() <= upper.getCustomersRejected())
 			return metod2(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime, min, Math.floorDiv(min + max, 2));
 		return metod2(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime, (int)Math.ceil(new Double(min + max)/2d), max);
 		/*
