@@ -1,4 +1,6 @@
 package labb5.simulation.general;
+import java.util.ArrayList;
+
 import labb5.simulation.general.Event;
 
 /**
@@ -6,32 +8,43 @@ import labb5.simulation.general.Event;
  */
 public class EventQueue {
 	
-	SortedSequence<Event> eventQueue = new SortedSequence<Event>();	
+	ArrayList<Event> eventQueue = new ArrayList<>();
+	
+	//SortedSequence<Event> eventQueue = new SortedSequence<Event>();	
 	
 	/**
 	 * adds new event  to the waiting queue		 
 	 * @param Events from the specific simulator
 	*/
 	public void add(Event e) {
-		eventQueue.add(e);
+		int indexToInput = 0;
+		
+		for(;indexToInput < eventQueue.size();)
+		{
+			if(e.getTime() <= eventQueue.get(indexToInput).getTime())
+				break;
+			indexToInput++;
+		}
+
+		eventQueue.add(indexToInput, e);
+		
+		//eventQueue.add(e);
 		}
 	
 	/**
 	 * Checks if the eventQueue is empty
 	 * @return  boolean, true if the queue is empty, false if not
 	 */
-	public boolean isEmpty() {
-		return eventQueue.isEmpty();
+	public Event poll()
+	{
+		if(isEmpty())
+			return null;
+		return eventQueue.remove(0);
 	}
-	/** 
-	 * returns  the event which is next to occur from the list, and removes it from the queue
-	 * 
-	 * @return  The next event in the queue
-	 */
-	Event poll() {
-		Event e = eventQueue.smallest();
-		eventQueue.removeSmallest();
-		return e;
+	
+	boolean isEmpty()
+	{
+		return eventQueue.size() <= 0;
 	}
 		
 	}

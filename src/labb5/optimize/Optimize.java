@@ -27,15 +27,14 @@ public class Optimize {
 		
 		//base case
 		if (min == max) {
-			//System.out.println(String.format("%d, %d", min, max));
 			return metod1(lambda, kMin, kMax, pMin, pMax, seed, min, customerMax, closingTime);
 		}
 		
-		SupermarketState lower = metod1(lambda, kMin, kMax, pMin, pMax, seed, min, customerMax, closingTime);
 		SupermarketState middle = metod1(lambda, kMin, kMax, pMin, pMax, seed, Math.floorDiv(min + max, 2), customerMax, closingTime);
 		SupermarketState upper = metod1(lambda, kMin, kMax, pMin, pMax, seed, max, customerMax, closingTime);
+		
 		//recursive case
-		//System.out.println(String.format("Lower: %d | Middle: %d | Upper: %d", lower.getCustomersRejected(), middle.getCustomersRejected(), upper.getCustomersRejected()));
+		System.out.println(String.format("Middle: %d | Upper: %d | min: %d | max: %d", middle.getCustomersRejected(), upper.getCustomersRejected(), min, max));
 		if(middle.getCustomersRejected() <= upper.getCustomersRejected())
 			return metod2(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime, min, Math.floorDiv(min + max, 2));
 		return metod2(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime, (int)Math.ceil(new Double(min + max)/2d), max);
@@ -64,12 +63,12 @@ public class Optimize {
 	public SupermarketState metod3(double lambda, double kMin, double kMax, double pMin, double pMax, int seed, int customerMax, double closingTime) {
 		rnd = new Random(seed);
 		int iterationsSinceLastChange = 0;
-		SupermarketState worstRegistersAmount = metod1(lambda, kMin, kMax, pMin, pMax, seed, 1, customerMax, closingTime);
+		SupermarketState worstRegistersAmount = null;
 
 		while (iterationsSinceLastChange <= 100) {
 			SupermarketState currentRegistersAmount = metod2(lambda, kMin, kMax, pMin, pMax, rnd.nextInt(), customerMax, closingTime, 1, customerMax);
 			System.out.println(String.format("Method2 returned %d registers with %d customers rejected", currentRegistersAmount.getMaxRegistersCount(), currentRegistersAmount.getCustomersRejected()));
-			if (currentRegistersAmount.getMaxRegistersCount() > worstRegistersAmount.getMaxRegistersCount()) {
+			if (worstRegistersAmount == null || currentRegistersAmount.getMaxRegistersCount() > worstRegistersAmount.getMaxRegistersCount()) {
 				worstRegistersAmount = currentRegistersAmount;
 				iterationsSinceLastChange = 0;
 				continue;

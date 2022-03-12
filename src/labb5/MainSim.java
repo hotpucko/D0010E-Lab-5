@@ -11,17 +11,16 @@ public class MainSim {
 	private static Optimize optimize = new Optimize();
 	
 	public static void main(String[] args) {
-		double lambda = 1.0;
-		double kMin	= 2.0;
-		double kMax = 3.0;
-		double pMin = 0.5;
-		double pMax = 1.0;
-		double closingTime = 10.0;
+		double lambda = 2000;
+		double kMin	= 0.2;
+		double kMax = 0.3;
+		double pMin = 0.45;
+		double pMax = 0.65;
+		double closingTime = 20;
 		
-		int registers = 2;
-		int customerMax = 5;
+		int registers = 1;
+		int customerMax = 1400;
 		int seed = 1234;
-		
 		
 		//RunSim sim = new RunSim(customerMax, lambda, kMin, kMax, pMin, pMax, seed, registers);
 
@@ -30,11 +29,14 @@ public class MainSim {
 		//sim.run(closingTime);
 		//System.out.println(String.valueOf(optimize.metod3(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime)));
 	
+		
+		
 		long startTime = System.currentTimeMillis();
 		
-		SupermarketState state = optimize.metod3(50, 0.2, 0.3, 0.45d, 0.65, 42, 50, 20);
+		//SupermarketState state = optimize.metod3(2000,  0.2, 0.3, 0.45, 0.65, 42,  1400, 20.0d);
+		SupermarketState state = optimize.metod3(700, 0.2d, 0.3d, 0.45d, 0.65d, 42, 1400, 20);
 		long endTime = System.currentTimeMillis();
-		System.out.println(String.format("registers: %d | RejectedCustomers: %d", state.getMaxRegistersCount(), state.getCustomersRejected()));
+		System.out.println(String.format("metod3: registers: %d | RejectedCustomers: %d", state.getMaxRegistersCount(), state.getCustomersRejected()));
 		System.out.println(String.format("That took %f milliseconds", new Double(endTime - startTime)));
 		
 		//SupermarketState ex1 = optimize.metod3(1, 2, 3, 0.5d, 1d, 1234, 5, 10);
