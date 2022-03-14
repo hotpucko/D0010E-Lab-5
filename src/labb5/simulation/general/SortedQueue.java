@@ -2,6 +2,7 @@ package labb5.simulation.general;
 
 import java.util.ArrayList;
 /**
+ * implements a queue
  * 
  * @author Arvid From, Stefan Jonsson, William Kiwanuka, Dino Lolic
  *
@@ -17,7 +18,7 @@ public class SortedQueue {
 	/**
 	 * adds new event to the waiting queue
 	 * 
-	 * @param Events
+	 * @param e Events
 	 *            from the specific simulator
 	 */
 	public void add(Event e) {
