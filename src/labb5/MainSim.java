@@ -14,7 +14,7 @@ public class MainSim {
 	public static void main(String[] args) {
 		
 		//if run with view
-		boolean runWithView = false;
+		boolean runWithView = true;
 		double lambda = 1;
 		double kMin = 2;
 		double kMax = 3;
@@ -22,7 +22,7 @@ public class MainSim {
 		double pMax = 1;
 		double closingTime = 10;
 
-		int registers = 3;
+		int registers = 2;
 		int customerMax = 5;
 		int seed = 1234;
 

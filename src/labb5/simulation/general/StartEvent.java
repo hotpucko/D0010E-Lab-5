@@ -44,7 +44,7 @@ public class StartEvent extends Event {
 		((SupermarketState) this.simState).open();
 		((SupermarketState) this.simState).update(this);
 
-		ArrivalEvent firstArrival = new ArrivalEvent(simState, eventQueue, time,
+		ArrivalEvent firstArrival = new ArrivalEvent(simState, eventQueue, state.generateArrivalTime(),
 				state.getCustomerFactory().generateCustomer());
 		this.eventQueue.add(firstArrival);
 	}

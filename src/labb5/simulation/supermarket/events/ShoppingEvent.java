@@ -49,16 +49,17 @@ public class ShoppingEvent extends Event {
 
 		double payLeaveTime = state.generatePayLeaveTime();
 
-		double goPayTime = payLeaveTime + time;
 
-		PayLeaveEvent payLeave = new PayLeaveEvent(simState, eventQueue, goPayTime, localCustNum);
 
 		if (state.getFreeRegisters() > 0) {
+			double goPayTime = payLeaveTime + time;
+			PayLeaveEvent payLeave = new PayLeaveEvent(simState, eventQueue, goPayTime, localCustNum);
 			eventQueue.add(payLeave);
 			state.decrementRegisters();
 
 		} else {
 
+			PayLeaveEvent payLeave = new PayLeaveEvent(simState, eventQueue, 0, localCustNum);
 			state.getShopQueue().add(payLeave);
 			state.IncrementCustomersQueued();
 		}

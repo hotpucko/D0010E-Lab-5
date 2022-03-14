@@ -15,8 +15,7 @@ public class CustomerFactory {
 	 * @return customerNumber
 	 */
 	public int generateCustomer() {
-		customerNumber++;
-		return customerNumber;
+		return customerNumber++;
 
 	}
 }
