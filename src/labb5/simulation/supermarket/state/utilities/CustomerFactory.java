@@ -1,13 +1,14 @@
 package labb5.simulation.supermarket.state.utilities;
 
 /**
- * @ author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
+ * 
  * @param customerNumber,  the given number for
  * initializing a single customer through arrivalEvent.
  * the parameter increases every time the only method in the class is
- * called
+ * called.
+ * 
+ * @author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
  */
-
 public class CustomerFactory {
 	private int customerNumber = 0 ;
 

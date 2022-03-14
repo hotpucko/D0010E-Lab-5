@@ -5,21 +5,21 @@ import java.util.ArrayList;
 import labb5.simulation.supermarket.events.PayLeaveEvent;
 
 
-/*
+/**
  * Describes the queue that appears when there are more people
- *  waiting to make their purchases than  there are available registers
- *  in the supermarket simulator
+ * waiting to make their purchases than  there are available registers
+ * in the supermarket simulator
  *  
- *  All the  registers share a common queue
+ * All the  registers share a common queue.
  *  
- * @ author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
+ * @author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
  * 
  */
 public class FIFO {
 
 	private ArrayList<PayLeaveEvent> shopQueue = new ArrayList<PayLeaveEvent>();
 
-	/*
+	/**
 	 * Adds a new event representing the future payment and subsequent exit of a
 	 * customer to the queue.
 	 */
@@ -28,7 +28,7 @@ public class FIFO {
 		shopQueue.add(e);
 	}
 
-	/*
+	/**
 	 * Represents the customer finally paying and leaving both the queue and the
 	 * supermarket.
 	 * 
@@ -45,7 +45,7 @@ public class FIFO {
 		}
 	}
 
-	/*
+	/**
 	 * Checks if the queue is empty.
 	 * 
 	 * @return true if the queue is empty, elsewise false.
@@ -54,7 +54,7 @@ public class FIFO {
 		return shopQueue.isEmpty();
 	}
 
-	/*
+	/**
 	 * Outputs the current amount of people in the queue
 	 * 
 	 * @return int the amount of people in the queue
@@ -63,11 +63,11 @@ public class FIFO {
 		return shopQueue.size();
 	}
 
-	/*
+	/**
 	 * Outputs String to represent the queues size and which customers are present
 	 * in it.
 	 * 
-	 * @ return String, size of queue and customers in queue
+	 * @return String, size of queue and customers in queue
 	 */
 	public String toString() {
 		if(this.getSize() == 0) {
