@@ -25,8 +25,6 @@ public class ClosingEvent extends Event {
 	 *            Reference variable for EventQueue, to add new events to the queue.
 	 * @param time
 	 *            The absolute time for the event.
-	 * @param customerNumber
-	 *            Unique number for the customer.
 	 */
 	public ClosingEvent(SimState simState, EventQueue eventQueue, double time) {
 		super(simState, eventQueue, time);
