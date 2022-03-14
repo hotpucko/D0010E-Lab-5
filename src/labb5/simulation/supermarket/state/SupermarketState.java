@@ -87,8 +87,6 @@ public class SupermarketState extends SimState {
 		this.currentRegisters = maxRegisters;
 	}
 	
-	Event lastEvent = null;
-	
 	/**
 	 * updates the time contexts associated with the state using an <code>Event</code>
 	 * 
@@ -105,7 +103,6 @@ public class SupermarketState extends SimState {
 			totalTimeRegistersIdled += (e.getTime() - lastEventTime) * currentRegisters;
 			totalTimeQueued += (e.getTime() - lastEventTime) * getShopQueue().getSize();
 		}
-		lastEvent = e;
 		super.update(e);
 	}
 
