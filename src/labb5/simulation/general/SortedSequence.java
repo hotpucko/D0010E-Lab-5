@@ -4,7 +4,10 @@ import java.util.Vector;
 import java.util.NoSuchElementException;
 
 /**
- * @author Dino Lolic, William Kiwanuka, Stefan Jonsson, Arvid From
+ * Sorted sequence class, sorts the events in terms of
+ * at what time they are to be ran.
+ * 
+ *	@author Dino Lolic, William Kiwanuka, Stefan Jonsson, Arvid From
  */
 public class SortedSequence<E extends Comparable<E>> 
 implements Comparable<SortedSequence<E>> {
@@ -12,18 +15,18 @@ implements Comparable<SortedSequence<E>> {
 	private Vector<E> store = new Vector<E>();
 	
 	/**
-	/*
-	 * adds item to the sorted sequence
+	 *	Adds an event to the sorted sequence
 	 */
 	public void add(E item) {
 		_add (item);
 	}
 	
 	/**
+	 *	Private implementation of add(E).
+	 *	Throws an exception if there is no item to put in the sequence
+	 *	sorts the item based on the size of a comparable variable
 	 *
-	 * private implementation of add(E);
-	 *throws an exception if there is no item to put in the sequence
-	 *sorts the item based on the size of a comparable variable
+	 *	@param E	Adds the event to the sorted sequence.
 	 */
 	private void _add(E item) throws IllegalArgumentException {
 		if (item == null) {
@@ -44,8 +47,7 @@ implements Comparable<SortedSequence<E>> {
 	}
   
 	/**
-	 *
-	 * returns the first element in the sequence
+	 *	Returns the first element in the sequence
 	 *  @return the first element in the sequence
 	 */
 	public E smallest() {
@@ -134,7 +136,7 @@ implements Comparable<SortedSequence<E>> {
 		 * compares ordered sequences
 		 * 
 		 * @return  -1, 0,or 1 depending on whether
-		 *  the first sequence is smaller equal or larger than the second
+		 * the first sequence is smaller equal or larger than the second
 		 */
 		private int _compareTo(SortedSequence<E> other) {
 			int result =0;
