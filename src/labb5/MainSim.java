@@ -34,7 +34,7 @@ public class MainSim {
 		long startTime = System.currentTimeMillis();
 		
 		//SupermarketState state = optimize.metod3(2000,  0.2, 0.3, 0.45, 0.65, 42,  1400, 20.0d);
-		SupermarketState state = optimize.metod3(700, 0.2d, 0.3d, 0.45d, 0.65d, 42, 1400, 20);
+		SupermarketState state = optimize.metod3(2000,  0.2, 0.3, 0.45, 0.65, 42,  1400, 20.0d);
 		long endTime = System.currentTimeMillis();
 		System.out.println(String.format("metod3: registers: %d | RejectedCustomers: %d", state.getMaxRegistersCount(), state.getCustomersRejected()));
 		System.out.println(String.format("That took %f milliseconds", new Double(endTime - startTime)));

@@ -54,7 +54,9 @@ public class PayLeaveEvent extends Event {
 		FIFO queue = ((SupermarketState) state).getShopQueue();
 
 		if (!queue.isEmpty()) {
-			eventQueue.add(queue.removeFirst());
+			PayLeaveEvent payLeave = queue.removeFirst();
+			payLeave = new PayLeaveEvent(state, eventQueue, this.getTime() + state.generatePayLeaveTime(), payLeave.getCustomerNumber());
+			eventQueue.add(payLeave);
 			state.decrementRegisters();
 		}
 

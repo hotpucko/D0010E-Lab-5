@@ -86,7 +86,9 @@ public class SupermarketState extends SimState {
 		this.arrivalTimeRandomStream = new ExponentialRandomStream(lambda, seed);
 		this.currentRegisters = maxRegisters;
 	}
-
+	
+	Event lastEvent = null;
+	
 	/**
 	 * updates the time contexts associated with the state using an <code>Event</code>
 	 * 
@@ -98,10 +100,12 @@ public class SupermarketState extends SimState {
 
 		if (this.isRunning()) {
 			//System.out.println(String.format("registersDelta: %f | queueDelta: %f", (e.getTime() - lastEventTime) * currentRegisters, (e.getTime() - lastEventTime) * getShopQueue().getSize()));
+			//if(e.getTime() - lastEventTime < 0)
+			//	System.out.println(String.format("DeltaTime: %f, type: %s, lastEvent: %s", e.getTime() - lastEventTime, e.getClass(), lastEvent.getClass()));
 			totalTimeRegistersIdled += (e.getTime() - lastEventTime) * currentRegisters;
 			totalTimeQueued += (e.getTime() - lastEventTime) * getShopQueue().getSize();
 		}
-
+		lastEvent = e;
 		super.update(e);
 	}
 
