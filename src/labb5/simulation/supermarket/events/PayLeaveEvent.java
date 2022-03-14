@@ -65,6 +65,11 @@ public class PayLeaveEvent extends Event {
 		state.incrementProcessedCustomerCount();
 	}
 
+	/**
+	 * Prepares a string for the view
+	 * 
+	 * @return a string to represent that the customer is paying.
+	 */
 	@Override
 	public String toString() {
 		return "Betalning";

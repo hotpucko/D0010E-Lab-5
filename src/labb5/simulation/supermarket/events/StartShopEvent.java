@@ -38,6 +38,11 @@ public class StartShopEvent extends StartEvent {
 		super.run(simState);
 	}
 	
+	/**
+	 * Prepares a string for the view
+	 * 
+	 * @return a string to represent that the shop is opening.
+	 */
 	@Override
 	public String toString() {
 		return super.toString();
