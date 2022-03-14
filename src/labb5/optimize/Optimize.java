@@ -49,7 +49,6 @@ public class Optimize {
 	 * @return returns the Supermarket state after a single regular simulation of a
 	 *         supermarket with given parameters
 	 */
-
 	public SupermarketState metod1(double lambda, double kMin, double kMax, double pMin, double pMax, int seed,
 			int registers, int customerMax, double closingTime) {
 		RunSim sim = new RunSim(customerMax, lambda, kMin, kMax, pMin, pMax, seed, registers);
@@ -126,7 +125,6 @@ public class Optimize {
 	 *         amount of registers needed to reduce the amount of missed customers
 	 *         to its smallest possible value.
 	 */
-
 	public SupermarketState metod3(double lambda, double kMin, double kMax, double pMin, double pMax, int seed,
 			int customerMax, double closingTime) {
 		rnd = new Random(seed);
