@@ -12,6 +12,9 @@ public class MainSim {
 	private static Optimize optimize = new Optimize();
 
 	public static void main(String[] args) {
+		
+		//if run with view
+		boolean runWithView = false;
 		double lambda = 1;
 		double kMin = 2;
 		double kMax = 3;
@@ -22,6 +25,53 @@ public class MainSim {
 		int registers = 3;
 		int customerMax = 5;
 		int seed = 1234;
+
+		// if ! run with view
+		SupermarketState state = null;
+		int ex = 3;
+		int verbosity = 0;
+
+		long startTime = System.currentTimeMillis();
+		
+		if(runWithView) {
+			RunSim sim = new RunSim(customerMax, lambda, kMin, kMax, pMin, pMax, seed, registers);
+					  
+			View v = new SupermarketView(sim.getState());
+					  
+			sim.run(closingTime);
+		} else {
+			switch (ex) {
+			case 1:
+				state = optimize.metod3(1, 2, 3, 0.5d, 1d, 1234, 5, 10, verbosity);
+				break;
+			case 2:
+				state = optimize.metod3(2, 2, 3, 0.5d, 1, 1234, 7, 10, verbosity);
+				break;
+			case 3:
+				state = optimize.metod3(3, 0.35d, 0.65d, 0.6d, 0.9d, 13, 7, 8, verbosity);
+				break;
+			case 4:
+				state = optimize.metod3(50, 0.2, 0.3, 0.45d, 0.65, 42, 100, 20, verbosity);
+				break;
+			case 5:
+				state = optimize.metod3(100, 0.2d, 0.3d, 0.45d, 0.65d, 42, 1400, 20, verbosity);
+				break;
+			case 6:
+				state = optimize.metod3(700, 0.2d, 0.3d, 0.45d, 0.65d, 42, 1400, 20, verbosity);
+				break;
+			case 7:
+				state = optimize.metod3(2000, 0.2, 0.3, 0.45, 0.65, 42, 1400, 20.0d, verbosity);
+				break;
+			default:
+				break;
+			}
+			System.out.println(String.format("metod3: registers: %d | RejectedCustomers: %d", state.getMaxRegistersCount(),
+					state.getCustomersRejected()));
+		}
+		
+		long endTime = System.currentTimeMillis();
+		
+		System.out.println(String.format("That took %f milliseconds", new Double(endTime - startTime)));
 
 		/*
 		 * RunSim sim = new RunSim(customerMax, lambda, kMin, kMax, pMin, pMax, seed,
@@ -34,16 +84,9 @@ public class MainSim {
 		 * pMax, seed, customerMax, closingTime)));
 		 */
 
-		long startTime = System.currentTimeMillis();
 
-		// SupermarketState state = optimize.metod3(2000, 0.2, 0.3, 0.45, 0.65, 42,
-		// 1400, 20.0d);
-		SupermarketState state = optimize.metod3(1, 2, 3, 0.5d, 1d, 1234, 5, 10);
-		long endTime = System.currentTimeMillis();
-		System.out.println(String.format("metod3: registers: %d | RejectedCustomers: %d", state.getMaxRegistersCount(),
-				state.getCustomersRejected()));
-		System.out.println(String.format("That took %f milliseconds", new Double(endTime - startTime)));
-
+		
+		
 		// SupermarketState ex1 = optimize.metod3(1, 2, 3, 0.5d, 1d, 1234, 5, 10);
 		/*
 		 * System.out.println(String.format("ex1: %s", String.valueOf(ex1))); int ex2 =

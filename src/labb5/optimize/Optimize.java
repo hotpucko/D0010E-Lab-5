@@ -96,7 +96,7 @@ public class Optimize {
 	 *         customers as a function of the amount of open registers
 	 */
 	public SupermarketState metod2(double lambda, double kMin, double kMax, double pMin, double pMax, int seed,
-			int customerMax, double closingTime, int min, int max) {
+			int customerMax, double closingTime, int min, int max, int verbosity) {
 
 		// base case
 		if (min == max) {
@@ -108,13 +108,14 @@ public class Optimize {
 		SupermarketState upper = metod1(lambda, kMin, kMax, pMin, pMax, seed, max, customerMax, closingTime);
 
 		// recursive case
-		System.out.println(String.format("Middle: %d | Upper: %d | min: %d | max: %d", middle.getCustomersRejected(),
+		if (verbosity >= 2)
+			System.out.println(String.format("Middle: %d | Upper: %d | min: %d | max: %d", middle.getCustomersRejected(),
 				upper.getCustomersRejected(), min, max));
 		if (middle.getCustomersRejected() <= upper.getCustomersRejected())
 			return metod2(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime, min,
-					Math.floorDiv(min + max, 2));
+					Math.floorDiv(min + max, 2), verbosity);
 		return metod2(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime,
-				(int) Math.ceil(new Double(min + max) / 2d), max);
+				(int) Math.ceil(new Double(min + max) / 2d), max, verbosity);
 	}
 
 	/**
@@ -148,15 +149,16 @@ public class Optimize {
 	 *         to its smallest possible value.
 	 */
 	public SupermarketState metod3(double lambda, double kMin, double kMax, double pMin, double pMax, int seed,
-			int customerMax, double closingTime) {
+			int customerMax, double closingTime, int verbosity) {
 		rnd = new Random(seed);
 		int iterationsSinceLastChange = 0;
 		SupermarketState worstRegistersAmount = null;
 
 		while (iterationsSinceLastChange <= 100) {
 			SupermarketState currentRegistersAmount = metod2(lambda, kMin, kMax, pMin, pMax, rnd.nextInt(), customerMax,
-					closingTime, 1, customerMax);
-			System.out.println(String.format("Method2 returned %d registers with %d customers rejected",
+					closingTime, 1, customerMax, verbosity);
+			if(verbosity >= 1)
+				System.out.println(String.format("Method2 returned %d registers with %d customers rejected",
 					currentRegistersAmount.getMaxRegistersCount(), currentRegistersAmount.getCustomersRejected()));
 			if (worstRegistersAmount == null
 					|| currentRegistersAmount.getMaxRegistersCount() > worstRegistersAmount.getMaxRegistersCount()) {
