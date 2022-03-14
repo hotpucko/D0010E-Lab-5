@@ -22,11 +22,14 @@ public class ArrivalEvent extends Event {
 	 * Constructor for arrival event. Takes time, customer number, current
 	 * eventQueue, and a simState object as parameters.
 	 * 
-	 * @param simState    From this var the specific supermarketState is
-	 *                    acquired.
-	 * @param eventQueue  An eventqueue on which to add new events.
-	 * @param time        Absolute time.
-	 * @param customerNum Customer number of a specific customer.
+	 * @param simState
+	 *            From this var the specific supermarketState is acquired.
+	 * @param eventQueue
+	 *            An eventqueue on which to add new events.
+	 * @param time
+	 *            Absolute time.
+	 * @param customerNum
+	 *            Customer number of a specific customer.
 	 */
 	public ArrivalEvent(SimState simState, EventQueue eventQueue, double time, int customerNum) {
 		super(simState, eventQueue, time);
@@ -51,22 +54,21 @@ public class ArrivalEvent extends Event {
 		double nextArrTime = absTime + arrTime;
 		double nextShopTime = absTime + shopTime;
 
-		
 		if (state.isOpen()) {
-            ArrivalEvent nextArrivalEvent = new ArrivalEvent(this.simState, this.eventQueue, nextArrTime,
-                    state.getCustomerFactory().generateCustomer());
-            if (state.isMaxCapacity()) {
-                state.incrementRejected();
-                eventQueue.add(nextArrivalEvent);
-            } else {
-                state.incrementCustomersInShop();
-                ShoppingEvent goShopping = new ShoppingEvent(this.simState, this.eventQueue, nextShopTime,
-                        customerNumber);
+			ArrivalEvent nextArrivalEvent = new ArrivalEvent(this.simState, this.eventQueue, nextArrTime,
+					state.getCustomerFactory().generateCustomer());
+			if (state.isMaxCapacity()) {
+				state.incrementRejected();
+				eventQueue.add(nextArrivalEvent);
+			} else {
+				state.incrementCustomersInShop();
+				ShoppingEvent goShopping = new ShoppingEvent(this.simState, this.eventQueue, nextShopTime,
+						customerNumber);
 
-                this.eventQueue.add(nextArrivalEvent);
-                this.eventQueue.add(goShopping);
-            }
-        }
+				this.eventQueue.add(nextArrivalEvent);
+				this.eventQueue.add(goShopping);
+			}
+		}
 	}
 
 	/**

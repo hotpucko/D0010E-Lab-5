@@ -4,14 +4,13 @@ import java.util.ArrayList;
 
 import labb5.simulation.supermarket.events.PayLeaveEvent;
 
-
 /**
- * Describes the queue that appears when there are more people
- * waiting to make their purchases than  there are available registers
- * in the supermarket simulator
- *  
- * All the  registers share a common queue.
- *  
+ * Describes the queue that appears when there are more people waiting to make
+ * their purchases than there are available registers in the supermarket
+ * simulator
+ * 
+ * All the registers share a common queue.
+ * 
  * @author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
  * 
  */
@@ -24,7 +23,7 @@ public class FIFO {
 	 * customer to the queue.
 	 */
 	public void add(PayLeaveEvent e) {
-		
+
 		shopQueue.add(e);
 	}
 
@@ -33,7 +32,7 @@ public class FIFO {
 	 * supermarket.
 	 * 
 	 * @return PayLeaveEvent if there is a customer able to pay and leave, the
-	 * method returns said event. Elsewise it returns null.
+	 *         method returns said event. Elsewise it returns null.
 	 */
 	public PayLeaveEvent removeFirst() {
 		if (isEmpty() == true) {
@@ -70,14 +69,13 @@ public class FIFO {
 	 * @return String, size of queue and customers in queue
 	 */
 	public String toString() {
-		if(this.getSize() == 0) {
+		if (this.getSize() == 0) {
 			return "[]";
 		}
-		String x = String.valueOf(shopQueue.get(0).getCustomerNumber());	
-		for (int i =1; i < shopQueue.size(); i++){
-			x += ", "  + shopQueue.get(i).getCustomerNumber(); 
+		String x = String.valueOf(shopQueue.get(0).getCustomerNumber());
+		for (int i = 1; i < shopQueue.size(); i++) {
+			x += ", " + shopQueue.get(i).getCustomerNumber();
 		}
-		return  "["+ x +"]";
+		return "[" + x + "]";
 	}
 }
-

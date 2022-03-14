@@ -57,15 +57,15 @@ public class SupermarketState extends SimState {
 	 *            the rate at which customers arrive, 1 over <code>lambda</code> per
 	 *            unit of time on average
 	 * @param kMin
-	 * 			the minimum time to process a customer
+	 *            the minimum time to process a customer
 	 * @param kMax
-	 * 			the maximum time to process a customer
+	 *            the maximum time to process a customer
 	 * @param pMin
-	 * 			the minimum time for a customer to shop
+	 *            the minimum time for a customer to shop
 	 * @param pMax
-	 * 			the maximum time for a customer to shop
+	 *            the maximum time for a customer to shop
 	 * @param maxRegisters
-	 * 			the maximum amount of free registers in the shop
+	 *            the maximum amount of free registers in the shop
 	 */
 	public SupermarketState(int seed, int customerMax, double lambda, double kMin, double kMax, double pMin,
 			double pMax, int maxRegisters) {
@@ -86,20 +86,24 @@ public class SupermarketState extends SimState {
 		this.arrivalTimeRandomStream = new ExponentialRandomStream(lambda, seed);
 		this.currentRegisters = maxRegisters;
 	}
-	
+
 	/**
-	 * updates the time contexts associated with the state using an <code>Event</code>
+	 * updates the time contexts associated with the state using an
+	 * <code>Event</code>
 	 * 
-	 * @param e 
-	 * 			the <code>Event</code> used to update the state
+	 * @param e
+	 *            the <code>Event</code> used to update the state
 	 */
 	@Override
 	public void update(Event e) {
 
 		if (this.isRunning()) {
-			//System.out.println(String.format("registersDelta: %f | queueDelta: %f", (e.getTime() - lastEventTime) * currentRegisters, (e.getTime() - lastEventTime) * getShopQueue().getSize()));
-			//if(e.getTime() - lastEventTime < 0)
-			//	System.out.println(String.format("DeltaTime: %f, type: %s, lastEvent: %s", e.getTime() - lastEventTime, e.getClass(), lastEvent.getClass()));
+			// System.out.println(String.format("registersDelta: %f | queueDelta: %f",
+			// (e.getTime() - lastEventTime) * currentRegisters, (e.getTime() -
+			// lastEventTime) * getShopQueue().getSize()));
+			// if(e.getTime() - lastEventTime < 0)
+			// System.out.println(String.format("DeltaTime: %f, type: %s, lastEvent: %s",
+			// e.getTime() - lastEventTime, e.getClass(), lastEvent.getClass()));
 			totalTimeRegistersIdled += (e.getTime() - lastEventTime) * currentRegisters;
 			totalTimeQueued += (e.getTime() - lastEventTime) * getShopQueue().getSize();
 		}
@@ -109,8 +113,8 @@ public class SupermarketState extends SimState {
 	/**
 	 * checks if the shop is open
 	 * 
-	 * @return <code>true </code> if the shop is considered
-	 *         open; <code>false</code> otherwise
+	 * @return <code>true </code> if the shop is considered open; <code>false</code>
+	 *         otherwise
 	 */
 	public boolean isOpen() {
 		return isShopOpen;
@@ -118,21 +122,22 @@ public class SupermarketState extends SimState {
 
 	/**
 	 * sets the internal is shop open variable to false
+	 * 
 	 * @see #isOpen()
 	 */
 	public void close() {
 		this.isShopOpen = false;
 	}
-	 
-	public void open()  {
+
+	public void open() {
 		this.isShopOpen = true;
 	}
-	
+
 	/**
 	 * checks if the maximum capacity of customers is achieved
 	 * 
-	 * @return <code>true </code> if the shop is considered
-	 *         to be at max capacity; <code>false</code> otherwise
+	 * @return <code>true </code> if the shop is considered to be at max capacity;
+	 *         <code>false</code> otherwise
 	 */
 	public boolean isMaxCapacity() {
 		return customersInShop >= customerMax;
@@ -167,7 +172,7 @@ public class SupermarketState extends SimState {
 	}
 
 	/**
-	 * increments the internal free registers counter 
+	 * increments the internal free registers counter
 	 */
 	public void incrementRegisters() {
 		currentRegisters++;
@@ -181,16 +186,18 @@ public class SupermarketState extends SimState {
 	}
 
 	/**
-	 * generates an exponentially distributed random time based on <code>lambda</code>
+	 * generates an exponentially distributed random time based on
+	 * <code>lambda</code>
 	 * 
 	 * @return a delta time for an <code>ArrivalEvent</code>
 	 */
 	public double generateArrivalTime() {
 		return this.arrivalTimeRandomStream.next();
 	}
-	
+
 	/**
-	 * generates a uniformally distributed random time based on <code>pMin</code> and <code>pMax</code>
+	 * generates a uniformally distributed random time based on <code>pMin</code>
+	 * and <code>pMax</code>
 	 * 
 	 * @return a delta time for a <code>ShoppingEvent</code>
 	 */
@@ -199,7 +206,8 @@ public class SupermarketState extends SimState {
 	}
 
 	/**
-	 * generates a uniformally distributed random time based on <code>kMin</code> and <code>kMax</code>
+	 * generates a uniformally distributed random time based on <code>kMin</code>
+	 * and <code>kMax</code>
 	 * 
 	 * @return a delta time for a <code>PayLeaveEvent</code>
 	 */
@@ -235,7 +243,7 @@ public class SupermarketState extends SimState {
 	}
 
 	// view exclusive getters
-	
+
 	/**
 	 * fetches the current time that registers have been idle
 	 * 
@@ -264,7 +272,8 @@ public class SupermarketState extends SimState {
 	}
 
 	/**
-	 * fetches how many customers have been unable to enter the store due to it being at max capacity
+	 * fetches how many customers have been unable to enter the store due to it
+	 * being at max capacity
 	 * 
 	 * @return the amount of customers rejected
 	 */
@@ -282,14 +291,15 @@ public class SupermarketState extends SimState {
 	}
 
 	/**
-	 * fetches the current time that has been spent waiting for registers to become free
+	 * fetches the current time that has been spent waiting for registers to become
+	 * free
 	 * 
 	 * @return the total time customers have spent queuing
 	 */
 	public double getTotalTimeQueued() {
 		return this.totalTimeQueued;
 	}
-	
+
 	/**
 	 * fetches the amount of registers that exist in the shop
 	 * 
@@ -300,7 +310,8 @@ public class SupermarketState extends SimState {
 	}
 
 	/**
-	 * fetches the maximum capacity of customers that can be at the store at any given time
+	 * fetches the maximum capacity of customers that can be at the store at any
+	 * given time
 	 * 
 	 * @return the shop capacity
 	 */
@@ -364,6 +375,6 @@ public class SupermarketState extends SimState {
 
 	public void IncrementCustomersQueued() {
 		this.totalCustomersQueued++;
-		
+
 	}
 }

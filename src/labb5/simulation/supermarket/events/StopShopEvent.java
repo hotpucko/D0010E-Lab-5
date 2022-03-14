@@ -25,7 +25,7 @@ public class StopShopEvent extends StopEvent {
 	 * Stops the simulation
 	 */
 	public void run() {
-super.run(simState);
+		super.run(simState);
 	}
 
 	/**

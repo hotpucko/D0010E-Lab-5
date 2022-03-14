@@ -14,9 +14,12 @@ public class StopEvent extends Event {
 	/**
 	 * The constructor for the simulation stop Note that time is set to 999.
 	 * 
-	 * @param simState   The simulation to stop
-	 * @param eventQueue Needed for general Event class
-	 * @param time       The current absolute time, set to 999.
+	 * @param simState
+	 *            The simulation to stop
+	 * @param eventQueue
+	 *            Needed for general Event class
+	 * @param time
+	 *            The current absolute time, set to 999.
 	 */
 	public StopEvent(SimState simState, EventQueue eventQueue, double time) {
 		super(simState, eventQueue, 999);

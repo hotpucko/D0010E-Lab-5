@@ -88,9 +88,8 @@ public abstract class SimState extends Observable {
 	protected boolean isEmergencyBreak() {
 		return emergencyBreak;
 	}
-	
-	public void run()
-	{
+
+	public void run() {
 		isRunning = true;
 	}
 }

@@ -13,17 +13,20 @@ import labb5.simulation.supermarket.state.SupermarketState;
  *
  */
 public class ClosingEvent extends Event {
-	
+
 	/**
 	 * Constructor which relates the individual event to the event queue and the
 	 * simulator at large Stop event triggers once every customer has left
 	 * 
-	 * @param simState       Reference variable to the SimState which will be casted
-	 *                       as a SupermarketState.
-	 * @param eventQueue     Reference variable for EventQueue, to add new events to
-	 *                       the queue.
-	 * @param time           The absolute time for the event.
-	 * @param customerNumber Unique number for the customer.
+	 * @param simState
+	 *            Reference variable to the SimState which will be casted as a
+	 *            SupermarketState.
+	 * @param eventQueue
+	 *            Reference variable for EventQueue, to add new events to the queue.
+	 * @param time
+	 *            The absolute time for the event.
+	 * @param customerNumber
+	 *            Unique number for the customer.
 	 */
 	public ClosingEvent(SimState simState, EventQueue eventQueue, double time) {
 		super(simState, eventQueue, time);
@@ -47,6 +50,4 @@ public class ClosingEvent extends Event {
 		return "Stänger";
 	}
 
-
-		
 }
