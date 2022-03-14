@@ -22,8 +22,9 @@ public class ArrivalEvent extends Event {
 	 * Constructor for arrival event. Takes time, customer number, current
 	 * eventQueue, and a simState object as parameters.
 	 * 
-	 * @param simState
-	 * @param eventQueue
+	 * @param simState    From this var the specific supermarketState is
+	 *                    acquired.
+	 * @param eventQueue  An eventqueue on which to add new events.
 	 * @param time        Absolute time.
 	 * @param customerNum Customer number of a specific customer.
 	 */
@@ -69,7 +70,7 @@ public class ArrivalEvent extends Event {
 	}
 
 	/**
-	 * Getter for customernumber.
+	 * Getter for customerNumber.
 	 * 
 	 * @return customerNumber
 	 */
@@ -77,6 +78,11 @@ public class ArrivalEvent extends Event {
 		return this.customerNumber;
 	}
 
+	/**
+	 * Prepares a string for the view
+	 * 
+	 * @return a string to represent that the customer have arrived to the shop.
+	 */
 	@Override
 	public String toString() {
 		return ("Ankomst");

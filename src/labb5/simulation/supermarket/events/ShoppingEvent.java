@@ -16,7 +16,6 @@ import labb5.simulation.supermarket.state.utilities.FIFO;
  * @author Dino Lolic, William Kiwanuka, Stefan Jonsson, Arvid From
  *
  */
-
 public class ShoppingEvent extends Event {
 
 	private int localCustNum;
@@ -71,6 +70,11 @@ public class ShoppingEvent extends Event {
 		return this.localCustNum;
 	}
 
+	/**
+	 * Prepares a string for the view
+	 * 
+	 * @return a string to represent that the customer is picks goods.
+	 */
 	@Override
 	public String toString() {
 		return "Plock";
