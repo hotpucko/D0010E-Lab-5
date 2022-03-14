@@ -29,7 +29,7 @@ public class Optimize {
 	}
 
 	/**
-	 * 
+	 * Runs single simulation
 	 * 
 	 * @param lambda
 	 *            1/lambda is the rate of customers entering the supermarket with 1

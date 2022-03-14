@@ -1,7 +1,11 @@
 package labb5.simulation.general;
 
 import java.util.ArrayList;
-
+/**
+ * 
+ * @author Arvid From, Stefan Jonsson, William Kiwanuka, Dino Lolic
+ *
+ */
 public class SortedQueue {
 
 	ArrayList<Event> queue;
@@ -39,7 +43,10 @@ public class SortedQueue {
 		}
 		return queue.remove(0);
 	}
-
+/**
+ * checks if the queue is empty
+ * @return boolean true if the queue is empty
+ */
 	boolean isEmpty() {
 		return queue.size() <= 0;
 	}
