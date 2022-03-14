@@ -1,11 +1,7 @@
 package labb5.simulation.supermarket.state.utilities;
 
 /**
- * 
- * @param customerNumber,
- *            the given number for initializing a single customer through
- *            arrivalEvent. the parameter increases every time the only method
- *            in the class is called.
+ * keeps track of which customer belongs to which event
  * 
  * @author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
  */

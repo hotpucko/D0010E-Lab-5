@@ -37,7 +37,7 @@ public abstract class Event implements Comparable<Event> {
 	/**
 	 * Performs appropriate changes to the specific state. Runs next event(s).
 	 * 
-	 * @param The
+	 * @param simState The
 	 *            current simState object that is running.
 	 */
 	public abstract void run(SimState simState);

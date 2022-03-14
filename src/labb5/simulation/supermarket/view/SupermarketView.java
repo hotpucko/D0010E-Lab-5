@@ -23,7 +23,7 @@ public class SupermarketView extends View {
 	/**
 	 * Constructor of the view, makes it possible to observe the state
 	 * 
-	 * @param The
+	 * @param state The
 	 *            state which is to be observed
 	 */
 	public SupermarketView(SupermarketState state) {

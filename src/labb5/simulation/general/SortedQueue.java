@@ -1,7 +1,12 @@
 package labb5.simulation.general;
 
 import java.util.ArrayList;
-
+/**
+ * implements a queue
+ * 
+ * @author Arvid From, Stefan Jonsson, William Kiwanuka, Dino Lolic
+ *
+ */
 public class SortedQueue {
 
 	ArrayList<Event> queue;
@@ -13,7 +18,7 @@ public class SortedQueue {
 	/**
 	 * adds new event to the waiting queue
 	 * 
-	 * @param Events
+	 * @param e Events
 	 *            from the specific simulator
 	 */
 	public void add(Event e) {
@@ -39,7 +44,10 @@ public class SortedQueue {
 		}
 		return queue.remove(0);
 	}
-
+/**
+ * checks if the queue is empty
+ * @return boolean true if the queue is empty
+ */
 	boolean isEmpty() {
 		return queue.size() <= 0;
 	}

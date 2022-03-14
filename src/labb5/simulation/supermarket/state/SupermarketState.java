@@ -128,7 +128,9 @@ public class SupermarketState extends SimState {
 	public void close() {
 		this.isShopOpen = false;
 	}
-
+/**
+ * changes the state of the shop to open
+ */
 	public void open() {
 		this.isShopOpen = true;
 	}
@@ -372,7 +374,9 @@ public class SupermarketState extends SimState {
 	public int getSeed() {
 		return this.seed;
 	}
-
+/**
+ * increments customers queued
+ */
 	public void IncrementCustomersQueued() {
 		this.totalCustomersQueued++;
 

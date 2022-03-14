@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import labb5.simulation.general.Event;
 
 /**
+ * General Event queue for running events
+ * 
  * @author Arvid From, Stefan Jonsson, Dino Lolic, William Kiwanuka
  */
 public class EventQueue {
@@ -16,7 +18,7 @@ public class EventQueue {
 	/**
 	 * adds new event to the waiting queue
 	 * 
-	 * @param Events
+	 * @param e Event 
 	 *            from the specific simulator
 	 */
 	public void add(Event e) {
