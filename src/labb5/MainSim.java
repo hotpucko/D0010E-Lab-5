@@ -15,21 +15,21 @@ public class MainSim {
 		
 		//if run with view
 		boolean runWithView = true;
-		double lambda = 1;
-		double kMin = 2;
-		double kMax = 3;
-		double pMin = 0.5;
-		double pMax = 1;
-		double closingTime = 10;
+		double lambda = 3.0;
+		double kMin = 0.35;
+		double kMax = 0.6;
+		double pMin = 0.6;
+		double pMax = 0.9;
+		double closingTime = 8;
 
 		int registers = 2;
-		int customerMax = 5;
-		int seed = 1234;
+		int customerMax =7;
+		int seed = 13;
 
 		// if ! run with view
 		SupermarketState state = null;
-		int ex = 3;
-		int verbosity = 0;
+		int ex = 6;
+		int verbosity = 1;
 
 		long startTime = System.currentTimeMillis();
 		
