@@ -2,6 +2,7 @@ package labb5.simulation.supermarket.state;
 
 import labb5.simulation.general.Event;
 import labb5.simulation.general.SimState;
+import labb5.simulation.supermarket.events.ArrivalEvent;
 import labb5.simulation.supermarket.state.utilities.CustomerFactory;
 import labb5.simulation.supermarket.state.utilities.FIFO;
 import labb5.simulation.supermarket.state.utilities.random.ExponentialRandomStream;
@@ -98,21 +99,14 @@ public class SupermarketState extends SimState {
 	public void update(Event e) {
 
 		if (this.isRunning()) {
-			// System.out.println(String.format("registersDelta: %f | queueDelta: %f",
-			// (e.getTime() - lastEventTime) * currentRegisters, (e.getTime() -
-			// lastEventTime) * getShopQueue().getSize()));
-			// if(e.getTime() - lastEventTime < 0)
-			// System.out.println(String.format("DeltaTime: %f, type: %s, lastEvent: %s",
-			// e.getTime() - lastEventTime, e.getClass(), lastEvent.getClass()));
-			/*if (this.customersInShop == 0  && this.customersProcessed >0) {
-				
-			}else {*/
-			totalTimeRegistersIdled += (e.getTime() - lastEventTime) * currentRegisters;
-			totalTimeQueued += (e.getTime() - lastEventTime) * getShopQueue().getSize();
+			if (e instanceof ArrivalEvent && !this.isOpen()) {
+			} else {
+				totalTimeRegistersIdled += (e.getTime() - lastEventTime) * currentRegisters;
+				totalTimeQueued += (e.getTime() - lastEventTime) * getShopQueue().getSize();
+			}
 		}
 		super.update(e);
 	}
-	
 
 	/**
 	 * checks if the shop is open
@@ -132,9 +126,10 @@ public class SupermarketState extends SimState {
 	public void close() {
 		this.isShopOpen = false;
 	}
-/**
- * changes the state of the shop to open
- */
+
+	/**
+	 * changes the state of the shop to open
+	 */
 	public void open() {
 		this.isShopOpen = true;
 	}
@@ -378,9 +373,10 @@ public class SupermarketState extends SimState {
 	public int getSeed() {
 		return this.seed;
 	}
-/**
- * increments customers queued
- */
+
+	/**
+	 * increments customers queued
+	 */
 	public void IncrementCustomersQueued() {
 		this.totalCustomersQueued++;
 
