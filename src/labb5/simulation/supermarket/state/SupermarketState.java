@@ -104,15 +104,15 @@ public class SupermarketState extends SimState {
 			// if(e.getTime() - lastEventTime < 0)
 			// System.out.println(String.format("DeltaTime: %f, type: %s, lastEvent: %s",
 			// e.getTime() - lastEventTime, e.getClass(), lastEvent.getClass()));
-			if (this.customersInShop == 0  && this.customersProcessed >0) {
+			/*if (this.customersInShop == 0  && this.customersProcessed >0) {
 				
-			}else {
+			}else {*/
 			totalTimeRegistersIdled += (e.getTime() - lastEventTime) * currentRegisters;
 			totalTimeQueued += (e.getTime() - lastEventTime) * getShopQueue().getSize();
 		}
 		super.update(e);
 	}
-	}
+	
 
 	/**
 	 * checks if the shop is open

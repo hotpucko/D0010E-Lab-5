@@ -40,12 +40,13 @@ public abstract class SimState extends Observable {
 	 *            an <code>Event</code> that the simulation processes
 	 */
 	public void update(Event e) {
-		if (!isRunning()) {
-			return;
-		}
+		if (isRunning()) {
+			
+		
 
-		if (!emergencyBreak) {
-			this.timeElapsed += e.getTime() - lastEventTime;
+			if (!emergencyBreak) {
+				this.timeElapsed += e.getTime() - lastEventTime;
+			}
 		}
 		setChanged();
 		notifyObservers(e);

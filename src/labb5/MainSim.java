@@ -1,7 +1,5 @@
 package labb5;
 
-import javax.print.attribute.standard.PrinterLocation;
-
 import labb5.optimize.Optimize;
 import labb5.simulation.general.RunSim;
 import labb5.simulation.general.View;
@@ -13,22 +11,22 @@ public class MainSim {
 
 	public static void main(String[] args) {
 	
-		double lambda = 3.0;
-		double kMin = 0.35;
-		double kMax = 0.6;
-		double pMin = 0.6;
-		double pMax = 0.9;
-		double closingTime = 8;
+		double lambda = 1.0;
+		double kMin = 2;
+		double kMax = 3;
+		double pMin = 0.5;
+		double pMax = 1;
+		double closingTime = 10;
 
 		int registers = 2;
-		int customerMax = 7;
-		int seed = 13;
+		int customerMax = 5;
+		int seed = 1234;
 
 		// if ! run with view
 		SupermarketState state = null;
 		
 		//if run with view
-		boolean runWithView = false;
+		boolean runWithView = true;
 		//vilket exempel?
 		int ex = 7;
 		//which optimize method?
