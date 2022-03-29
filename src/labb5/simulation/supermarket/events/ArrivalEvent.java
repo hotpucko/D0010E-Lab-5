@@ -48,25 +48,27 @@ public class ArrivalEvent extends Event {
 		((SupermarketState) this.simState).update(this);
 
 		double absTime = this.getTime();
-		double arrTime = state.generateArrivalTime();
-		double shopTime = state.generateShoppingTime();
+		//double arrTime = state.generateArrivalTime();
+//		double shopTime = state.generateShoppingTime();
 
-		double nextArrTime = absTime + arrTime;
-		double nextShopTime = absTime + shopTime;
+	//	double nextArrTime = absTime + arrTime;
+	//	double nextShopTime = absTime + shopTime;
 
 		if (state.isOpen()) {
-			ArrivalEvent nextArrivalEvent = new ArrivalEvent(this.simState, this.eventQueue, nextArrTime,
+			ArrivalEvent nextArrivalEvent = new ArrivalEvent(this.simState, this.eventQueue, absTime + state.generateArrivalTime(),
 					state.getCustomerFactory().generateCustomer());
 			if (state.isMaxCapacity()) {
 				state.incrementRejected();
 				eventQueue.add(nextArrivalEvent);
 			} else {
 				state.incrementCustomersInShop();
-				ShoppingEvent goShopping = new ShoppingEvent(this.simState, this.eventQueue, nextShopTime,
+				ShoppingEvent goShopping = new ShoppingEvent(this.simState, this.eventQueue, absTime + state.generateShoppingTime(),
 						customerNumber);
 
-				this.eventQueue.add(nextArrivalEvent);
 				this.eventQueue.add(goShopping);
+				this.eventQueue.add(nextArrivalEvent);
+			
+
 			}
 		}
 	}

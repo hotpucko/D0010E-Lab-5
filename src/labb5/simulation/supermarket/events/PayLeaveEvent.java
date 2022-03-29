@@ -51,17 +51,18 @@ public class PayLeaveEvent extends Event {
 	@Override
 	public void run(SimState simState) {
 
+			
 		SupermarketState state = ((SupermarketState) this.simState);
 		state.update(this);
-
+		
 		FIFO queue = ((SupermarketState) state).getShopQueue();
 
 		if (!queue.isEmpty()) {
 			PayLeaveEvent payLeave = queue.removeFirst();
-			payLeave = new PayLeaveEvent(state, eventQueue, this.getTime() + state.generatePayLeaveTime(),
+			state.decrementRegisters();
+			payLeave = new PayLeaveEvent(state, eventQueue, time + payLeave.time,
 					payLeave.getCustomerNumber());
 			eventQueue.add(payLeave);
-			state.decrementRegisters();
 		}
 
 		state.incrementRegisters();
