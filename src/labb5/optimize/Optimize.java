@@ -49,8 +49,8 @@ public class Optimize {
 	 * @return returns the Supermarket state after a single regular simulation of a
 	 *         supermarket with given parameters
 	 */
-	public SupermarketState rejectedCustomers(double lambda, double kMin, double kMax, double pMin, double pMax, int seed,
-			int registers, int customerMax, double closingTime) {
+	public SupermarketState rejectedCustomers(double lambda, double kMin, double kMax, double pMin, double pMax,
+			int seed, int registers, int customerMax, double closingTime) {
 		RunSim sim = new RunSim(customerMax, lambda, kMin, kMax, pMin, pMax, seed, registers);
 		sim.run(closingTime);
 		return sim.getState();
@@ -80,16 +80,16 @@ public class Optimize {
 	 * @return A Supermarket-state which produces the least amount of missed
 	 *         customers as a function of the amount of open registers
 	 */
-	public SupermarketState optimizeRegisters(double lambda, double kMin, double kMax, double pMin, double pMax, int seed,
-			int customerMax, double closingTime, int min, int max, int verbosity) {
+	public SupermarketState optimizeRegisters(double lambda, double kMin, double kMax, double pMin, double pMax,
+			int seed, int customerMax, double closingTime, int min, int max, int verbosity) {
 
 		// base case
 		if (min == max) {
 			return rejectedCustomers(lambda, kMin, kMax, pMin, pMax, seed, min, customerMax, closingTime);
 		}
 
-		SupermarketState middle = rejectedCustomers(lambda, kMin, kMax, pMin, pMax, seed, Math.floorDiv(min + max, 2), customerMax,
-				closingTime);
+		SupermarketState middle = rejectedCustomers(lambda, kMin, kMax, pMin, pMax, seed, Math.floorDiv(min + max, 2),
+				customerMax, closingTime);
 		SupermarketState upper = rejectedCustomers(lambda, kMin, kMax, pMin, pMax, seed, max, customerMax, closingTime);
 
 		// recursive case
@@ -133,8 +133,8 @@ public class Optimize {
 		SupermarketState worstRegistersAmount = null;
 
 		while (iterationsSinceLastChange <= 100) {
-			SupermarketState currentRegistersAmount = optimizeRegisters(lambda, kMin, kMax, pMin, pMax, rnd.nextInt(), customerMax,
-					closingTime, 1, customerMax, verbosity);
+			SupermarketState currentRegistersAmount = optimizeRegisters(lambda, kMin, kMax, pMin, pMax, rnd.nextInt(),
+					customerMax, closingTime, 1, customerMax, verbosity);
 			if (verbosity >= 1)
 				System.out.println(String.format("Method2 returned %d registers with %d customers rejected",
 						currentRegistersAmount.getMaxRegistersCount(), currentRegistersAmount.getCustomersRejected()));
