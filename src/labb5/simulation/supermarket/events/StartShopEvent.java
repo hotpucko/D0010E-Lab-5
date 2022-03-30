@@ -15,11 +15,10 @@ public class StartShopEvent extends StartEvent {
 	/**
 	 * Constructor for StartShopEvent.
 	 *
-	 * @param simState
-	 *            Reference variable to the SimState which will be casted as a
-	 *            SupermarketState.
-	 * @param eventQueue
-	 *            Reference variable for EventQueue, to add new events to the queue.
+	 * @param simState   Reference variable to the SimState which will be casted as
+	 *                   a SupermarketState.
+	 * @param eventQueue Reference variable for EventQueue, to add new events to the
+	 *                   queue.
 	 */
 	public StartShopEvent(SimState simState, EventQueue eventQueue) {
 		super(simState, eventQueue, 0.00);

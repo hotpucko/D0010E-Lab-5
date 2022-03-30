@@ -18,8 +18,7 @@ public class EventQueue {
 	/**
 	 * adds new event to the waiting queue
 	 * 
-	 * @param e Event 
-	 *            from the specific simulator
+	 * @param e Event from the specific simulator
 	 */
 	public void add(Event e) {
 		eventQueue.add(e);

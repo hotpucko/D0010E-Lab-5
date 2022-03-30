@@ -18,20 +18,17 @@ import labb5.simulation.supermarket.state.utilities.FIFO;
  */
 public class PayLeaveEvent extends Event {
 
-	int customerNumber;
+	private int customerNumber;
 
 	/**
 	 * Constructor for PayLeaveEvent.
 	 *
-	 * @param simState
-	 *            Reference variable to the SimState which will be casted as a
-	 *            SupermarketState.
-	 * @param eventQueue
-	 *            Reference variable for EventQueue, to add new events to the queue.
-	 * @param time
-	 *            The absolute time for the event.
-	 * @param customerNumber
-	 *            Unique number for the customer.
+	 * @param simState       Reference variable to the SimState which will be casted
+	 *                       as a SupermarketState.
+	 * @param eventQueue     Reference variable for EventQueue, to add new events to
+	 *                       the queue.
+	 * @param time           The absolute time for the event.
+	 * @param customerNumber Unique number for the customer.
 	 */
 	public PayLeaveEvent(SimState simState, EventQueue eventQueue, double time, int customerNumber) {
 		super(simState, eventQueue, time);
@@ -51,17 +48,15 @@ public class PayLeaveEvent extends Event {
 	@Override
 	public void run(SimState simState) {
 
-			
 		SupermarketState state = ((SupermarketState) this.simState);
 		state.update(this);
-		
+
 		FIFO queue = ((SupermarketState) state).getShopQueue();
 
 		if (!queue.isEmpty()) {
 			PayLeaveEvent payLeave = queue.removeFirst();
 			state.decrementRegisters();
-			payLeave = new PayLeaveEvent(state, eventQueue, time + payLeave.time,
-					payLeave.getCustomerNumber());
+			payLeave = new PayLeaveEvent(state, eventQueue, time + payLeave.time, payLeave.getCustomerNumber());
 			eventQueue.add(payLeave);
 		}
 

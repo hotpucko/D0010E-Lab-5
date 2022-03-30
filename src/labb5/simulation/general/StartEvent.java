@@ -18,12 +18,9 @@ public class StartEvent extends Event {
 	/**
 	 * Constructor.
 	 * 
-	 * @param simState
-	 *            The simstate object on which to run the event
-	 * @param eventQueue
-	 *            The eventqueue on which to add the firstArrival
-	 * @param time
-	 *            The current absolute time.
+	 * @param simState   The simstate object on which to run the event
+	 * @param eventQueue The eventqueue on which to add the firstArrival
+	 * @param time       The current absolute time.
 	 */
 	public StartEvent(SimState simState, EventQueue eventQueue, double time) {
 		super(simState, eventQueue, time);
@@ -34,8 +31,7 @@ public class StartEvent extends Event {
 	 * first arrival. The following arrivalevent takes care of subsequent arrival
 	 * events.
 	 * 
-	 * @param simState
-	 *            The simstate object for which this event applies to.
+	 * @param simState The simstate object for which this event applies to.
 	 */
 	@Override
 	public void run(SimState simState) {
@@ -44,9 +40,9 @@ public class StartEvent extends Event {
 		((SupermarketState) this.simState).open();
 		((SupermarketState) this.simState).update(this);
 
-		ArrivalEvent firstArrival = new ArrivalEvent(simState, eventQueue, state.generateArrivalTime(),
+		ArrivalEvent firstEvent = new ArrivalEvent(simState, eventQueue, state.generateArrivalTime(),
 				state.getCustomerFactory().generateCustomer());
-		this.eventQueue.add(firstArrival);
+		this.eventQueue.add(firstEvent);
 	}
 
 	@Override

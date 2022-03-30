@@ -23,14 +23,11 @@ public class ShoppingEvent extends Event {
 	/**
 	 * Constructor for shoppingEvents.
 	 * 
-	 * @param simState
-	 *            From this var the specific supermarketState is acquired.
-	 * @param eventQueue
-	 *            An eventqueue on which to add new events.
-	 * @param time
-	 *            The current absolute time.
-	 * @param customerNumber
-	 *            A specific customer who does these acts.
+	 * @param simState       From this var the specific supermarketState is
+	 *                       acquired.
+	 * @param eventQueue     An eventqueue on which to add new events.
+	 * @param time           The current absolute time.
+	 * @param customerNumber A specific customer who does these acts.
 	 */
 	public ShoppingEvent(SimState simState, EventQueue eventQueue, double time, int customerNumber) {
 		super(simState, eventQueue, time);
@@ -49,14 +46,11 @@ public class ShoppingEvent extends Event {
 
 		double payLeaveTime = state.generatePayLeaveTime();
 
-
-
 		if (state.getFreeRegisters() > 0) {
 			state.decrementRegisters();
 			double goPayTime = payLeaveTime + time;
 			PayLeaveEvent payLeave = new PayLeaveEvent(simState, eventQueue, goPayTime, localCustNum);
 			eventQueue.add(payLeave);
-			
 
 		} else {
 
