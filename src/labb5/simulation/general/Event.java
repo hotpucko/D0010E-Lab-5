@@ -12,7 +12,7 @@ import labb5.simulation.general.SimState;
  * @author Dino Lolic, Stefan Jonsson, William Kiwanuka, Arvid From
  * 
  */
-public abstract class Event implements Comparable<Event> {
+public abstract class Event {
 
 	protected double time;
 	protected EventQueue eventQueue;
@@ -60,21 +60,4 @@ public abstract class Event implements Comparable<Event> {
 	 */
 	abstract public String toString();
 
-	/**
-	 * Compares this object with the specified object for order.
-	 * 
-	 * @param event The event that is to be compared to.
-	 * @return 1 if this objects time is less than the events time, -1 if this
-	 *         objects time is greater than the events time, else 0.
-	 * 
-	 */
-	public int compareTo(Event event) {
-		if (this.time < event.time) {
-			return -1;
-		} else if (this.time > event.time) {
-			return 1;
-		} else {
-			return 0;
-		}
-	}
 }
