@@ -64,7 +64,7 @@ public class RunSim {
 
 		Event startEvent = new StartShopEvent(simState, queue);
 		Event closingEvent = new ClosingEvent(simState, queue, closingTime);
-		Event stopEvent = new StopShopEvent(simState, queue);
+		Event stopEvent = new StopShopEvent(simState, queue, 999.00);
 
 		queue.add(startEvent);
 		queue.add(closingEvent);
