@@ -108,7 +108,7 @@ public class Optimize {
 	 * missed customers to its smallest possible value in a given supermarket state
 	 * Assures that said data is dependable by imposing that the return value must
 	 * be the product of a 100 randomly varying simulations in a row before ending
-	 * up as the return value and randomly selecting for the worst possible outcome
+	 * up as the return value and from the batch of 100 simulations selects the worst possible outcome
 	 * 
 	 * @param lambda      1/lambda is the rate of customers entering the supermarket
 	 *                    with 1 representing a single unit of time
