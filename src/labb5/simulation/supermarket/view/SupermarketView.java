@@ -52,8 +52,8 @@ public class SupermarketView extends View {
 			printStartEvent(state, e);
 		} else if (e instanceof StopEvent) {
 			printStopEvent(state, e);
-		} else if (e instanceof ClosingEvent) {
-			printClosingEvent(e);
+//		} else if (e instanceof ClosingEvent) {
+//			printClosingEvent(e);
 		} else {
 			printCustomerEvents(state, e);
 		}
