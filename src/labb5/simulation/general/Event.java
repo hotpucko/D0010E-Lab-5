@@ -15,7 +15,6 @@ import labb5.simulation.general.SimState;
 public abstract class Event implements Comparable<Event> {
 
 	protected double time;
-
 	protected EventQueue eventQueue;
 	protected SimState simState;
 
