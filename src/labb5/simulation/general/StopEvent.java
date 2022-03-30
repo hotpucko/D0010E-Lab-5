@@ -19,7 +19,7 @@ public class StopEvent extends Event {
 	 * @param time       The current absolute time, set to 999.
 	 */
 	public StopEvent(SimState simState, EventQueue eventQueue, double time) {
-		super(simState, eventQueue, 999);
+		super(simState, eventQueue, time);
 	}
 
 	/**
