@@ -23,14 +23,7 @@ public abstract class SimState extends Observable {
 	protected boolean isRunning;
 	private double timeElapsed;
 	private boolean emergencyBreak;
-
-	/**
-	 * The default SimState constructor
-	 */
-	public SimState() {
-
-	}
-
+	
 	/**
 	 * Updates the internal time based on the argument if the state is considered
 	 * active <br>
