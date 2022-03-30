@@ -16,20 +16,16 @@ import labb5.simulation.supermarket.state.SupermarketState;
  */
 public class ArrivalEvent extends Event {
 
-	int customerNumber;
+	private int customerNumber;
 
 	/**
 	 * Constructor for arrival event. Takes time, customer number, current
 	 * eventQueue, and a simState object as parameters.
 	 * 
-	 * @param simState
-	 *            From this var the specific supermarketState is acquired.
-	 * @param eventQueue
-	 *            An eventqueue on which to add new events.
-	 * @param time
-	 *            Absolute time.
-	 * @param customerNum
-	 *            Customer number of a specific customer.
+	 * @param simState    From this var the specific supermarketState is acquired.
+	 * @param eventQueue  An eventqueue on which to add new events.
+	 * @param time        Absolute time.
+	 * @param customerNum Customer number of a specific customer.
 	 */
 	public ArrivalEvent(SimState simState, EventQueue eventQueue, double time, int customerNum) {
 		super(simState, eventQueue, time);
@@ -48,26 +44,25 @@ public class ArrivalEvent extends Event {
 		((SupermarketState) this.simState).update(this);
 
 		double absTime = this.getTime();
-		//double arrTime = state.generateArrivalTime();
+		// double arrTime = state.generateArrivalTime();
 //		double shopTime = state.generateShoppingTime();
 
-	//	double nextArrTime = absTime + arrTime;
-	//	double nextShopTime = absTime + shopTime;
+		// double nextArrTime = absTime + arrTime;
+		// double nextShopTime = absTime + shopTime;
 
 		if (state.isOpen()) {
-			ArrivalEvent nextArrivalEvent = new ArrivalEvent(this.simState, this.eventQueue, absTime + state.generateArrivalTime(),
-					state.getCustomerFactory().generateCustomer());
+			ArrivalEvent nextArrivalEvent = new ArrivalEvent(this.simState, this.eventQueue,
+					absTime + state.generateArrivalTime(), state.getCustomerFactory().generateCustomer());
 			if (state.isMaxCapacity()) {
 				state.incrementRejected();
 				eventQueue.add(nextArrivalEvent);
 			} else {
 				state.incrementCustomersInShop();
-				ShoppingEvent goShopping = new ShoppingEvent(this.simState, this.eventQueue, absTime + state.generateShoppingTime(),
-						customerNumber);
+				ShoppingEvent goShopping = new ShoppingEvent(this.simState, this.eventQueue,
+						absTime + state.generateShoppingTime(), customerNumber);
 
 				this.eventQueue.add(goShopping);
 				this.eventQueue.add(nextArrivalEvent);
-			
 
 			}
 		}

@@ -16,7 +16,7 @@ public abstract class Event implements Comparable<Event> {
 
 	protected double time;
 
-	public EventQueue eventQueue;
+	protected EventQueue eventQueue;
 	protected SimState simState;
 
 	/**
@@ -37,8 +37,7 @@ public abstract class Event implements Comparable<Event> {
 	/**
 	 * Performs appropriate changes to the specific state. Runs next event(s).
 	 * 
-	 * @param simState The
-	 *            current simState object that is running.
+	 * @param simState The current simState object that is running.
 	 */
 	public abstract void run(SimState simState);
 
@@ -65,8 +64,7 @@ public abstract class Event implements Comparable<Event> {
 	/**
 	 * Compares this object with the specified object for order.
 	 * 
-	 * @param event
-	 *            The event that is to be compared to.
+	 * @param event The event that is to be compared to.
 	 * @return 1 if this objects time is less than the events time, -1 if this
 	 *         objects time is greater than the events time, else 0.
 	 * 

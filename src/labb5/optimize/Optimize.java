@@ -31,26 +31,20 @@ public class Optimize {
 	/**
 	 * Runs single simulation
 	 * 
-	 * @param lambda
-	 *            1/lambda is the rate of customers entering the supermarket with 1
-	 *            representing a single unit of time
-	 * @param kMin
-	 *            The minimum payment time for a single customer
-	 * @param kMax
-	 *            The maximum payment time for a single customer
-	 * @param pMin
-	 *            The minimum shopping time for a single customer
-	 * @param pMax
-	 *            The maximum shopping time for a single customer
-	 * @param seed
-	 *            The seed that always executes the simulation in exactly the same
-	 *            way given a randomiser
-	 * @param registers
-	 *            The amount of Registers available throughout the simulation
-	 * @param customerMax
-	 *            The maximum amount of customers allowed within the supermarket
-	 * @param closingTime
-	 *            After how many units of time does the shop being simulated close
+	 * @param lambda      1/lambda is the rate of customers entering the supermarket
+	 *                    with 1 representing a single unit of time
+	 * @param kMin        The minimum payment time for a single customer
+	 * @param kMax        The maximum payment time for a single customer
+	 * @param pMin        The minimum shopping time for a single customer
+	 * @param pMax        The maximum shopping time for a single customer
+	 * @param seed        The seed that always executes the simulation in exactly
+	 *                    the same way given a randomiser
+	 * @param registers   The amount of Registers available throughout the
+	 *                    simulation
+	 * @param customerMax The maximum amount of customers allowed within the
+	 *                    supermarket
+	 * @param closingTime After how many units of time does the shop being simulated
+	 *                    close
 	 * 
 	 * @return returns the Supermarket state after a single regular simulation of a
 	 *         supermarket with given parameters
@@ -67,31 +61,22 @@ public class Optimize {
 	 * least amount of customers, all other things equal. Uses repeated iterations
 	 * of metod1() and a recursive binary search to achieve this
 	 * 
-	 * @param lambda
-	 *            1/lambda is the rate of customers entering the supermarket with 1
-	 *            representing a single unit of time
-	 * @param kMin
-	 *            The minimum payment time for a single customer
-	 * @param kMax
-	 *            The maximum payment time for a single customer
-	 * @param pMin
-	 *            The minimum shopping time for a single customer
-	 * @param pMax
-	 *            The maximum shopping time for a single customer
-	 * @param seed
-	 *            The seed that always executes the simulation in exactly the same
-	 *            way given a randomiser
-	 * @param customerMax
-	 *            The max amount of customers allowed within a single shop within
-	 *            the customerSimulator
-	 * @param closingTime
-	 *            After how many units of time does the shop being simulated close
-	 * @param min
-	 *            Low bound for binary search of the results for all the simulations
-	 *            during runtime
-	 * @param max
-	 *            High bound for binary search of the results for all the
-	 *            simulations during runtime
+	 * @param lambda      1/lambda is the rate of customers entering the supermarket
+	 *                    with 1 representing a single unit of time
+	 * @param kMin        The minimum payment time for a single customer
+	 * @param kMax        The maximum payment time for a single customer
+	 * @param pMin        The minimum shopping time for a single customer
+	 * @param pMax        The maximum shopping time for a single customer
+	 * @param seed        The seed that always executes the simulation in exactly
+	 *                    the same way given a randomiser
+	 * @param customerMax The max amount of customers allowed within a single shop
+	 *                    within the customerSimulator
+	 * @param closingTime After how many units of time does the shop being simulated
+	 *                    close
+	 * @param min         Low bound for binary search of the results for all the
+	 *                    simulations during runtime
+	 * @param max         High bound for binary search of the results for all the
+	 *                    simulations during runtime
 	 * @return A Supermarket-state which produces the least amount of missed
 	 *         customers as a function of the amount of open registers
 	 */
@@ -109,8 +94,8 @@ public class Optimize {
 
 		// recursive case
 		if (verbosity >= 2)
-			System.out.println(String.format("Middle: %d | Upper: %d | min: %d | max: %d", middle.getCustomersRejected(),
-				upper.getCustomersRejected(), min, max));
+			System.out.println(String.format("Middle: %d | Upper: %d | min: %d | max: %d",
+					middle.getCustomersRejected(), upper.getCustomersRejected(), min, max));
 		if (middle.getCustomersRejected() <= upper.getCustomersRejected())
 			return metod2(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime, min,
 					Math.floorDiv(min + max, 2), verbosity);
@@ -125,25 +110,18 @@ public class Optimize {
 	 * be the product of a 100 randomly varying simulations in a row before ending
 	 * up as the return value
 	 * 
-	 * @param lambda
-	 *            1/lambda is the rate of customers entering the supermarket with 1
-	 *            representing a single unit of time
-	 * @param kMin
-	 *            The minimum payment time for a single customer
-	 * @param kMax
-	 *            The maximum payment time for a single customer
-	 * @param pMin
-	 *            The minimum shopping time for a single customer
-	 * @param pMax
-	 *            The maximum shopping time for a single customer
-	 * @param seed
-	 *            The seed that always executes the simulation in exactly the same
-	 *            way given a randomiser
-	 * @param customerMax
-	 *            The max amount of customers allowed within a single shop within
-	 *            the customerSimulator
-	 * @param closingTime
-	 *            After how many units of time does the shop being simulated close
+	 * @param lambda      1/lambda is the rate of customers entering the supermarket
+	 *                    with 1 representing a single unit of time
+	 * @param kMin        The minimum payment time for a single customer
+	 * @param kMax        The maximum payment time for a single customer
+	 * @param pMin        The minimum shopping time for a single customer
+	 * @param pMax        The maximum shopping time for a single customer
+	 * @param seed        The seed that always executes the simulation in exactly
+	 *                    the same way given a randomiser
+	 * @param customerMax The max amount of customers allowed within a single shop
+	 *                    within the customerSimulator
+	 * @param closingTime After how many units of time does the shop being simulated
+	 *                    close
 	 * @return for a given seed of random values, the method returns the smallest
 	 *         amount of registers needed to reduce the amount of missed customers
 	 *         to its smallest possible value.
@@ -157,9 +135,9 @@ public class Optimize {
 		while (iterationsSinceLastChange <= 100) {
 			SupermarketState currentRegistersAmount = metod2(lambda, kMin, kMax, pMin, pMax, rnd.nextInt(), customerMax,
 					closingTime, 1, customerMax, verbosity);
-			if(verbosity >= 1)
+			if (verbosity >= 1)
 				System.out.println(String.format("Method2 returned %d registers with %d customers rejected",
-					currentRegistersAmount.getMaxRegistersCount(), currentRegistersAmount.getCustomersRejected()));
+						currentRegistersAmount.getMaxRegistersCount(), currentRegistersAmount.getCustomersRejected()));
 			if (worstRegistersAmount == null
 					|| currentRegistersAmount.getMaxRegistersCount() > worstRegistersAmount.getMaxRegistersCount()) {
 				worstRegistersAmount = currentRegistersAmount;

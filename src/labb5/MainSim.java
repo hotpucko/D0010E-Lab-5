@@ -10,7 +10,7 @@ public class MainSim {
 	private static Optimize optimize = new Optimize();
 
 	public static void main(String[] args) {
-	
+
 		double lambda = 3.0;
 		double kMin = 0.35;
 		double kMax = 0.6;
@@ -24,87 +24,88 @@ public class MainSim {
 
 		// if ! run with view
 		SupermarketState state = null;
-		
-		//if run with view
+
+		// if run with view
 		boolean runWithView = true;
-		//vilket exempel?
-		int ex = 7;
-		//which optimize method?
-		int selectMethod = 2;
-		
+		// vilket exempel?
+		int ex = 2;
+		// which optimize method?
+		int selectMethod = 3;
+
 		int verbosity = 0;
 
 		long startTime = System.currentTimeMillis();
-		
-		if(runWithView) {
+
+		if (runWithView) {
 			RunSim sim = new RunSim(customerMax, lambda, kMin, kMax, pMin, pMax, seed, registers);
-					  
+
 			View v = new SupermarketView(sim.getState());
-					  
+
 			sim.run(closingTime);
 		} else {
-			if(selectMethod == 3) {
+			if (selectMethod == 3) {
 				switch (ex) {
-					case 1:
-						//lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime, Verbosity
-						state = optimize.metod3(1, 2, 3, 0.5, 1, 1234, 5, 10, verbosity);
-						break;
-					case 2:
-						state = optimize.metod3(2, 2, 3, 0.5, 1, 1234, 7, 10, verbosity);
-						break;
-					case 3:
-						state = optimize.metod3(3, 0.35, 0.6, 0.6, 0.9, 13, 7, 8, verbosity);
-						break;
-					case 4:
-						state = optimize.metod3(50, 0.2, 0.3, 0.45, 0.65, 42, 100, 20, verbosity);
-						break;
-					case 5:
-						state = optimize.metod3(100, 0.2, 0.3, 0.45, 0.65, 42, 1400, 20, verbosity);
-						break;
-					case 6:
-						state = optimize.metod3(700, 0.2, 0.3, 0.45, 0.65, 42, 1400, 20, verbosity);
-						break;
-					case 7:
-						state = optimize.metod3(2000, 0.2, 0.3, 0.45, 0.65, 42, 1400, 20, verbosity);
-						break;
-					default:
-						break;
+				case 1:
+					// lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime, Verbosity
+					state = optimize.metod3(1, 2, 3, 0.5, 1, 1234, 5, 10, verbosity);
+					break;
+				case 2:
+					state = optimize.metod3(2, 2, 3, 0.5, 1, 1234, 7, 10, verbosity);
+					break;
+				case 3:
+					state = optimize.metod3(3, 0.35, 0.6, 0.6, 0.9, 13, 7, 8, verbosity);
+					break;
+				case 4:
+					state = optimize.metod3(50, 0.2, 0.3, 0.45, 0.65, 42, 100, 20, verbosity);
+					break;
+				case 5:
+					state = optimize.metod3(100, 0.2, 0.3, 0.45, 0.65, 42, 1400, 20, verbosity);
+					break;
+				case 6:
+					state = optimize.metod3(700, 0.2, 0.3, 0.45, 0.65, 42, 1400, 20, verbosity);
+					break;
+				case 7:
+					state = optimize.metod3(2000, 0.2, 0.3, 0.45, 0.65, 42, 1400, 20, verbosity);
+					break;
+				default:
+					break;
 				}
 			} else if (selectMethod == 2) {
 				switch (ex) {
-					case 1:
-						//lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime, 0, customerMax, Verbosity
-						state = optimize.metod2(1, 2, 3, 0.5, 1, 1234, 5, 10, 0, 5, verbosity);
-						break;
-					case 2:
-						state = optimize.metod2(2, 2, 3, 0.5, 1, 1234, 7, 10, 0, 7, verbosity);
-						break;
-					case 3:
-						state = optimize.metod2(3, 0.35, 0.6, 0.6, 0.9, 13, 7, 8, 0, 7, verbosity);
-						break;
-					case 4:
-						state = optimize.metod2(50, 0.2, 0.3, 0.45, 0.65, 42, 100, 20, 0, 100, verbosity);
-						break;
-					case 5:
-						state = optimize.metod2(100, 0.2, 0.3, 0.45, 0.65, 42, 1400, 20, 0, 1400, verbosity);
-						break;
-					case 6:
-						state = optimize.metod2(700, 0.2, 0.3, 0.45, 0.65, 42, 1400, 20, 0, 1400, verbosity);
-						break;
-					case 7:
-						state = optimize.metod2(2000, 0.2, 0.3, 0.45, 0.65, 42, 1400, 20, 0, 1400, verbosity);
-						break;
-					default:
-						break;
+				case 1:
+					// lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime, 0,
+					// customerMax, Verbosity
+					state = optimize.metod2(1, 2, 3, 0.5, 1, 1234, 5, 10, 0, 5, verbosity);
+					break;
+				case 2:
+					state = optimize.metod2(2, 2, 3, 0.5, 1, 1234, 7, 10, 0, 7, verbosity);
+					break;
+				case 3:
+					state = optimize.metod2(3, 0.35, 0.6, 0.6, 0.9, 13, 7, 8, 0, 7, verbosity);
+					break;
+				case 4:
+					state = optimize.metod2(50, 0.2, 0.3, 0.45, 0.65, 42, 100, 20, 0, 100, verbosity);
+					break;
+				case 5:
+					state = optimize.metod2(100, 0.2, 0.3, 0.45, 0.65, 42, 1400, 20, 0, 1400, verbosity);
+					break;
+				case 6:
+					state = optimize.metod2(700, 0.2, 0.3, 0.45, 0.65, 42, 1400, 20, 0, 1400, verbosity);
+					break;
+				case 7:
+					state = optimize.metod2(2000, 0.2, 0.3, 0.45, 0.65, 42, 1400, 20, 0, 1400, verbosity);
+					break;
+				default:
+					break;
 				}
 			}
-			
-			System.out.println(String.format("metod3: registers: %d | RejectedCustomers: %d", state.getMaxRegistersCount(),
-					state.getCustomersRejected()));
+
+			System.out.println(String.format("metod3: registers: %d | RejectedCustomers: %d",
+					state.getMaxRegistersCount(), state.getCustomersRejected()));
 		}
-		
+
 		long endTime = System.currentTimeMillis();
-		
+
 		System.out.println(String.format("That took %f milliseconds", new Double(endTime - startTime)));
 
 		/*
@@ -118,9 +119,6 @@ public class MainSim {
 		 * pMax, seed, customerMax, closingTime)));
 		 */
 
-
-		
-		
 		// SupermarketState ex1 = optimize.metod3(1, 2, 3, 0.5d, 1d, 1234, 5, 10);
 		/*
 		 * System.out.println(String.format("ex1: %s", String.valueOf(ex1))); int ex2 =
