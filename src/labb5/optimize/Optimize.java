@@ -111,9 +111,10 @@ public class Optimize {
 		if (verbosity >= 2)
 			System.out.println(String.format("Middle: %d | Upper: %d | min: %d | max: %d",
 					middle.getCustomersRejected(), upper.getCustomersRejected(), min, max));
-		if (middle.getCustomersRejected() <= upper.getCustomersRejected())
+		if (middle.getCustomersRejected() <= upper.getCustomersRejected()) {
 			return optimizeRegisters(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime, min,
 					Math.floorDiv(min + max, 2), verbosity);
+		}
 		return optimizeRegisters(lambda, kMin, kMax, pMin, pMax, seed, customerMax, closingTime,
 				(int) Math.ceil(new Double(min + max) / 2d), max, verbosity);
 	}
