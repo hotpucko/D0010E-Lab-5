@@ -104,11 +104,9 @@ public class Optimize {
 	}
 
 	/**
-	 * Locates the least amount of registers needed to to reduce the amount of
-	 * missed customers to its smallest possible value in a given supermarket state
-	 * Assures that said data is dependable by imposing that the return value must
-	 * be the product of a 100 randomly varying simulations in a row before ending
-	 * up as the return value
+	 * Identifies a particularly bad case for a supermarket with the given parameters.
+     * if a worse case can not be found within 100 random iterations of optimizeRegisters(),
+     * it returns said scenario.
 	 * 
 	 * @param lambda      1/lambda is the rate of customers entering the supermarket
 	 *                    with 1 representing a single unit of time
