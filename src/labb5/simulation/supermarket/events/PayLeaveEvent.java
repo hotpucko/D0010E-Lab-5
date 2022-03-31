@@ -23,12 +23,15 @@ public class PayLeaveEvent extends Event {
 	/**
 	 * Constructor for PayLeaveEvent.
 	 *
-	 * @param simState       Reference variable to the SimState which will be casted
-	 *                       as a SupermarketState.
-	 * @param eventQueue     Reference variable for EventQueue, to add new events to
-	 *                       the queue.
-	 * @param time           The absolute time for the event.
-	 * @param customerNumber Unique number for the customer.
+	 * @param simState
+	 *            Reference variable to the SimState which will be casted as a
+	 *            SupermarketState.
+	 * @param eventQueue
+	 *            Reference variable for EventQueue, to add new events to the queue.
+	 * @param time
+	 *            The absolute time for the event.
+	 * @param customerNumber
+	 *            Unique number for the customer.
 	 */
 	public PayLeaveEvent(SimState simState, EventQueue eventQueue, double time, int customerNumber) {
 		super(simState, eventQueue, time);

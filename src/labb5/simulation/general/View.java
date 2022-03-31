@@ -15,7 +15,8 @@ public abstract class View implements Observer {
 	/**
 	 * The view constructor handles setting up the Observer pattern
 	 * 
-	 * @param state The state object for the view to observe
+	 * @param state
+	 *            The state object for the view to observe
 	 */
 	public View(SimState state) {
 		state.addObserver(this);

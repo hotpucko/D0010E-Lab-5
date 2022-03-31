@@ -52,15 +52,23 @@ public class SupermarketState extends SimState {
 	/**
 	 * the class constructor setting up the initial state.
 	 * 
-	 * @param seed         a seed for initializing random values
-	 * @param customerMax  the maximum capacity of customers in the supermarket
-	 * @param lambda       the rate at which customers arrive, 1 over
-	 *                     <code>lambda</code> per unit of time on average
-	 * @param kMin         the minimum time to process a customer
-	 * @param kMax         the maximum time to process a customer
-	 * @param pMin         the minimum time for a customer to shop
-	 * @param pMax         the maximum time for a customer to shop
-	 * @param maxRegisters the maximum amount of free registers in the shop
+	 * @param seed
+	 *            a seed for initializing random values
+	 * @param customerMax
+	 *            the maximum capacity of customers in the supermarket
+	 * @param lambda
+	 *            the rate at which customers arrive, 1 over <code>lambda</code> per
+	 *            unit of time on average
+	 * @param kMin
+	 *            the minimum time to process a customer
+	 * @param kMax
+	 *            the maximum time to process a customer
+	 * @param pMin
+	 *            the minimum time for a customer to shop
+	 * @param pMax
+	 *            the maximum time for a customer to shop
+	 * @param maxRegisters
+	 *            the maximum amount of free registers in the shop
 	 */
 	public SupermarketState(int seed, int customerMax, double lambda, double kMin, double kMax, double pMin,
 			double pMax, int maxRegisters) {
@@ -86,7 +94,8 @@ public class SupermarketState extends SimState {
 	 * updates the time contexts associated with the state using an
 	 * <code>Event</code>
 	 * 
-	 * @param e the <code>Event</code> used to update the state
+	 * @param e
+	 *            the <code>Event</code> used to update the state
 	 */
 	@Override
 	public void update(Event e) {
@@ -106,12 +115,13 @@ public class SupermarketState extends SimState {
 
 	/**
 	 * returns the most recent time a <Code>PayLeaveEvent</code> was processed
+	 * 
 	 * @return the time of the most recent payLeaveEvent
 	 */
 	public double getLastCustomerPaidTime() {
 		return this.lastCustomerPaidTime;
 	}
-	
+
 	/**
 	 * checks if the shop is open
 	 * 

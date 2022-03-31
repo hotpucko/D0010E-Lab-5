@@ -19,7 +19,8 @@ public class SortedQueue {
 	/**
 	 * adds new event to the waiting queue
 	 * 
-	 * @param e Events from the specific simulator
+	 * @param e
+	 *            Events from the specific simulator
 	 */
 	public void add(Event e) {
 		int indexToInput = 0;

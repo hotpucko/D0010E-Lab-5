@@ -22,10 +22,14 @@ public class ArrivalEvent extends Event {
 	 * Constructor for arrival event. Takes time, customer number, current
 	 * eventQueue, and a simState object as parameters.
 	 * 
-	 * @param simState    From this var the specific supermarketState is acquired.
-	 * @param eventQueue  An eventqueue on which to add new events.
-	 * @param time        Absolute time.
-	 * @param customerNum Customer number of a specific customer.
+	 * @param simState
+	 *            From this var the specific supermarketState is acquired.
+	 * @param eventQueue
+	 *            An eventqueue on which to add new events.
+	 * @param time
+	 *            Absolute time.
+	 * @param customerNum
+	 *            Customer number of a specific customer.
 	 */
 	public ArrivalEvent(SimState simState, EventQueue eventQueue, double time, int customerNum) {
 		super(simState, eventQueue, time);
@@ -45,7 +49,7 @@ public class ArrivalEvent extends Event {
 
 		double absTime = this.getTime();
 		// double arrTime = state.generateArrivalTime();
-//		double shopTime = state.generateShoppingTime();
+		// double shopTime = state.generateShoppingTime();
 
 		// double nextArrTime = absTime + arrTime;
 		// double nextShopTime = absTime + shopTime;

@@ -27,9 +27,8 @@ public class MainSim {
 
 		// if run with view
 		boolean runWithView = true;
-		
-		
-		//optimize setup
+
+		// optimize setup
 		// vilket exempel?
 		int ex = 1;
 		// which optimize method?

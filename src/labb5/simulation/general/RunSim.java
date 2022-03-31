@@ -21,18 +21,24 @@ public class RunSim {
 
 	/**
 	 * 
-	 * @param customerMax  The maximum amount of customers allowed within the
-	 *                     supermarket
-	 * @param lambda       1/lambda is the rate of customers entering the
-	 *                     supermarket with 1 representing a single unit of time
-	 * @param kMin         The minimum payment time for a single customer
-	 * @param kMax         The maximum payment time for a single customer
-	 * @param pMin         The minimum shopping time for a single customer
-	 * @param pMax         The maximum shopping time for a single customer
-	 * @param seed         The seed that always executes the simulation in exactly
-	 *                     the same way given a randomiser
-	 * @param maxRegisters The amount of Registers available throughout the
-	 *                     simulation
+	 * @param customerMax
+	 *            The maximum amount of customers allowed within the supermarket
+	 * @param lambda
+	 *            1/lambda is the rate of customers entering the supermarket with 1
+	 *            representing a single unit of time
+	 * @param kMin
+	 *            The minimum payment time for a single customer
+	 * @param kMax
+	 *            The maximum payment time for a single customer
+	 * @param pMin
+	 *            The minimum shopping time for a single customer
+	 * @param pMax
+	 *            The maximum shopping time for a single customer
+	 * @param seed
+	 *            The seed that always executes the simulation in exactly the same
+	 *            way given a randomiser
+	 * @param maxRegisters
+	 *            The amount of Registers available throughout the simulation
 	 */
 	public RunSim(int customerMax, double lambda, double kMin, double kMax, double pMin, double pMax, int seed,
 			int maxRegisters) {
@@ -57,8 +63,9 @@ public class RunSim {
 	 * behave(described in said events) Changes may be observed if one adds a view
 	 * to the implementation.
 	 * 
-	 * @param closingTime Time at which a simulation is meant to close its generic
-	 *                    doors so to speak,NOT to stop the simulation entirely.
+	 * @param closingTime
+	 *            Time at which a simulation is meant to close its generic doors so
+	 *            to speak,NOT to stop the simulation entirely.
 	 */
 	public void run(double closingTime) {
 

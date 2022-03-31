@@ -120,7 +120,8 @@ public class SupermarketView extends View {
 		System.out.println(String.format(
 				"\tGenomsnittlig ledig kassatid: %.2f te (dvs %.2f%% av tiden från öppning tills sista kunden betalat)\n",
 				state.getTimeRegistersIdled() / state.getMaxRegistersCount(),
-				((state.getTimeRegistersIdled() / state.getMaxRegistersCount()) / state.getLastCustomerPaidTime() * 100)));
+				((state.getTimeRegistersIdled() / state.getMaxRegistersCount()) / state.getLastCustomerPaidTime()
+						* 100)));
 		System.out.println(String.format("3)\tTotal tid %d kunder tvingats k�a: %.2f te.",
 				state.getTotalCustomersQueued(), state.getTotalTimeQueued()));
 		System.out.println(String.format("\tGenomsnittlig kötid: %.2f te.",

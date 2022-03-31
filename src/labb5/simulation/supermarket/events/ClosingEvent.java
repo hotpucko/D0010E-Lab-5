@@ -18,11 +18,13 @@ public class ClosingEvent extends Event {
 	 * Constructor which relates the individual event to the event queue and the
 	 * simulator at large Stop event triggers once every customer has left
 	 * 
-	 * @param simState   Reference variable to the SimState which will be casted as
-	 *                   a SupermarketState.
-	 * @param eventQueue Reference variable for EventQueue, to add new events to the
-	 *                   queue.
-	 * @param time       The absolute time for the event.
+	 * @param simState
+	 *            Reference variable to the SimState which will be casted as a
+	 *            SupermarketState.
+	 * @param eventQueue
+	 *            Reference variable for EventQueue, to add new events to the queue.
+	 * @param time
+	 *            The absolute time for the event.
 	 */
 	public ClosingEvent(SimState simState, EventQueue eventQueue, double time) {
 		super(simState, eventQueue, time);

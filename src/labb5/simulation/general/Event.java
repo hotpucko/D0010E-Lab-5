@@ -36,7 +36,8 @@ public abstract class Event {
 	/**
 	 * Performs appropriate changes to the specific state. Runs next event(s).
 	 * 
-	 * @param simState The current simState object that is running.
+	 * @param simState
+	 *            The current simState object that is running.
 	 */
 	public abstract void run(SimState simState);
 

@@ -23,13 +23,14 @@ public abstract class SimState extends Observable {
 	protected boolean isRunning;
 	private double timeElapsed;
 	private boolean emergencyBreak;
-	
+
 	/**
 	 * Updates the internal time based on the argument if the state is considered
 	 * active <br>
 	 * Notifies observers with the event that was processed
 	 * 
-	 * @param e an <code>Event</code> that the simulation processes
+	 * @param e
+	 *            an <code>Event</code> that the simulation processes
 	 */
 	public void update(Event e) {
 		if (isRunning()) {
