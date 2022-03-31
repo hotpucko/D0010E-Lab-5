@@ -3,6 +3,7 @@ package labb5.simulation.supermarket.state;
 import labb5.simulation.general.Event;
 import labb5.simulation.general.SimState;
 import labb5.simulation.supermarket.events.ArrivalEvent;
+import labb5.simulation.supermarket.events.PayLeaveEvent;
 import labb5.simulation.supermarket.state.utilities.CustomerFactory;
 import labb5.simulation.supermarket.state.utilities.FIFO;
 import labb5.simulation.supermarket.state.utilities.random.ExponentialRandomStream;
@@ -41,6 +42,7 @@ public class SupermarketState extends SimState {
 	private double kMax;
 	private double pMin;
 	private double pMax;
+	private double lastCustomerPaidTime;
 	private CustomerFactory customerFactory;
 	private FIFO shopQueue;
 	private UniformRandomStream shoppingTimeRandomStream;
@@ -94,11 +96,22 @@ public class SupermarketState extends SimState {
 			} else {
 				totalTimeRegistersIdled += (e.getTime() - lastEventTime) * currentRegisters;
 				totalTimeQueued += (e.getTime() - lastEventTime) * getShopQueue().getSize();
+				if (e instanceof PayLeaveEvent) {
+					lastCustomerPaidTime = e.getTime();
+				}
 			}
 		}
 		super.update(e);
 	}
 
+	/**
+	 * returns the most recent time a <Code>PayLeaveEvent</code> was processed
+	 * @return the time of the most recent payLeaveEvent
+	 */
+	public double getLastCustomerPaidTime() {
+		return this.lastCustomerPaidTime;
+	}
+	
 	/**
 	 * checks if the shop is open
 	 * 

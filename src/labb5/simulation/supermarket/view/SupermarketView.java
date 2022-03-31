@@ -23,7 +23,8 @@ public class SupermarketView extends View {
 	/**
 	 * Constructor of the view, makes it possible to observe the state
 	 * 
-	 * @param state The state which is to be observed
+	 * @param state
+	 *            The state which is to be observed
 	 */
 	public SupermarketView(SupermarketState state) {
 		super(state);
@@ -43,8 +44,10 @@ public class SupermarketView extends View {
 	/**
 	 * Compilation of prints needed for the view
 	 * 
-	 * @param state which is observed
-	 * @param event which occurs to trigger the changing of the state
+	 * @param state
+	 *            which is observed
+	 * @param event
+	 *            which occurs to trigger the changing of the state
 	 */
 	private void printEvent(SupermarketState state, Event e) {
 		if (e instanceof StartEvent) {
@@ -52,8 +55,8 @@ public class SupermarketView extends View {
 			printStartEvent(state, e);
 		} else if (e instanceof StopEvent) {
 			printStopEvent(state, e);
-//		} else if (e instanceof ClosingEvent) {
-//			printClosingEvent(e);
+			// } else if (e instanceof ClosingEvent) {
+			// printClosingEvent(e);
 		} else {
 			printCustomerEvents(state, e);
 		}
@@ -62,8 +65,10 @@ public class SupermarketView extends View {
 	/**
 	 * Console representation of each simulation
 	 * 
-	 * @param state state which was observed
-	 * @param Event which occurs to trigger a change in the state
+	 * @param state
+	 *            state which was observed
+	 * @param Event
+	 *            which occurs to trigger a change in the state
 	 */
 	private void printCustomerEvents(SupermarketState state, Event e) {
 		String time = String.format("%.2f", state.getCurrentTime());// String.valueOf(format(state.getCurrentTime()));
@@ -88,7 +93,8 @@ public class SupermarketView extends View {
 	/**
 	 * Prints the closing event
 	 * 
-	 * @param e the closing event
+	 * @param e
+	 *            the closing event
 	 */
 	private void printClosingEvent(Event e) {
 		System.out.println(
@@ -98,8 +104,10 @@ public class SupermarketView extends View {
 	/**
 	 * Prints the tail of the simulation
 	 * 
-	 * @param state the state which is meant to be printed
-	 * @param e     The stopEvent which ceases the simulation
+	 * @param state
+	 *            the state which is meant to be printed
+	 * @param e
+	 *            The stopEvent which ceases the simulation
 	 */
 	private void printStopEvent(SupermarketState state, Event e) {
 		System.out.println(String.format("%.2f\t%s", e.getTime(), e.toString()));
@@ -112,7 +120,7 @@ public class SupermarketView extends View {
 		System.out.println(String.format(
 				"\tGenomsnittlig ledig kassatid: %.2f te (dvs %.2f%% av tiden från öppning tills sista kunden betalat)\n",
 				state.getTimeRegistersIdled() / state.getMaxRegistersCount(),
-				((state.getTimeRegistersIdled() / state.getMaxRegistersCount()) / state.getCurrentTime() * 100)));
+				((state.getTimeRegistersIdled() / state.getMaxRegistersCount()) / state.getLastCustomerPaidTime() * 100)));
 		System.out.println(String.format("3)\tTotal tid %d kunder tvingats k�a: %.2f te.",
 				state.getTotalCustomersQueued(), state.getTotalTimeQueued()));
 		System.out.println(String.format("\tGenomsnittlig kötid: %.2f te.",
@@ -122,8 +130,10 @@ public class SupermarketView extends View {
 	/**
 	 * prints the head of the superMarketview
 	 * 
-	 * @param state The state which is to be observed
-	 * @param e     the StartEvent that begins the simulation
+	 * @param state
+	 *            The state which is to be observed
+	 * @param e
+	 *            the StartEvent that begins the simulation
 	 */
 	private void printStartEvent(SupermarketState state, Event e) {
 		System.out.println("PARAMETRAR");
@@ -143,7 +153,8 @@ public class SupermarketView extends View {
 	/**
 	 * Gets customerNumbers for each event
 	 * 
-	 * @param e The event from which the customerNumber is meant to be retrieved
+	 * @param e
+	 *            The event from which the customerNumber is meant to be retrieved
 	 * @return returns a string with the events customerNumber
 	 */
 	private String eventToCustomerNumberString(Event e) {
